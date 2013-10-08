@@ -1,0 +1,9 @@
+\subsection{Test med Arduino}
+\label{sub:testIndMet_flash}
+\begin{indledning}
+Dette afsnit indeholder en test af flash modulet og dokumentation hertil og beskrivelse af testmetoder. Tester udføres ved hjælp af en Arduino udviklingsbord og Arduino software. Alt koden af skrevet i Arduno sprog og der blev brugt en Arduino SPI bibliotek.     
+\end{indledning}
+
+\subsubsection{Vælg af testmetoder}
+Der skal testes de vigtigste funktioner af flash modulet, som skrive, læse og slette data.
+Test blevet delt i tre minisprints: den første går ud på at teste de simple funktioner, som kan programmere en byte til flash modulet, læse en byte fra flash modulet og slette en byte fra flash modulet, og den næste minisprint går ud på at programmere en page på \SI{256}{B} til flash modulet, slette sektor på \SI{64}KiB}, og læse hele pagen ud. 

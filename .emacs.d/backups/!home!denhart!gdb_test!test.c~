@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+  int val = 2;
+  if(val == 2){
+    printf("Ha, val er 2!"); 
+  }else if (val==3){
+
+    printf("Nu er val 3!");
+  }
+  return 0;
+}

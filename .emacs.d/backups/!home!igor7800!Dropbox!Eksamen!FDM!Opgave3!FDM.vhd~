@@ -1,0 +1,64 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity FDM is
+    Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           gul : out  STD_LOGIC;
+           gron : out  STD_LOGIC;
+           rod : out  STD_LOGIC);
+end FDM;
+
+architecture arch of FDM is
+type state_type is (s0,s1,s2,s3);
+signal state_reg,state_next: state_type;
+signal clk_counter: STD_LOGIC;
+begin
+--state register
+process (clk,reset)
+begin
+  if (reset = '1') then state_reg <= s0; 
+  elsif (clk'event and clk = '1') then state_reg <= state_next;
+  end if;
+end process;
+
+--next state logic
+process (state_reg)
+begin
+  case state_reg is 
+    when s0 =>
+      red <= '1';
+      clk_counter <= '0';
+      if clk_counter = '6' then state_next <= s1;
+      else state_next <= s0 and clk_counter = clk_counter + '1';
+      end if;    
+    when s1 =>
+      gul <= '1';
+      clk_counter <= '0';
+      if clk_counter = '1' then state_next <= s2;
+      else state_next <= s1 and clk_counter = clk_counter + '1';
+      end if;
+    when s2 =>
+      gron <= '1';
+      clk_counter <= '0';
+      if clk_counter = '6' then state_nex <= s3;
+      else state_next <= s2 and clk_counter = clk_counter + '1';
+      end if;
+    when s3 =>
+      gron <= '1';
+      gul  <= '1';
+      clk_counter <= '0';  
+      if clk_counter = '1' then state_nex <= s0;
+      else state_next <= s3 and clk_counter = clk_counter + '1';
+      end if;
+  end case;  
+end process;
+
+
+
+
+
+
+
+
+end arch;
+

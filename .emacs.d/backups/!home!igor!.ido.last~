@@ -1,0 +1,65 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/igor/svn/project5/rep/sec/" . "problem_analysis/")
+ ("/home/igor/svn/project5/rep/" . "sec/")
+ ("/home/igor/svn/project5/" . "rep/")
+ ("/home/igor/svn/" . "project5/")
+ ("/home/igor/.emacs.d/" . "configs/")
+ ("/home/igor/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/igor/.emacs.d/configs/"
+ "/home/igor/Documents/"
+ "/home/igor/svn/project5/rep/sec/problem_analysis/"
+ "/home/igor/.fluxbox/"
+ "/home/igor/"
+ "/home/igor/.emacs.d/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "matlab_mode.el"
+ "test.c"
+ "filters.tex"
+ "filters.org"
+ "battery_life_wireless.tex"
+ "mkdev.sh"
+ "nexusOps.org"
+ "startup"
+ "flyspell.el"
+ "###test.tex###"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/igor/.emacs.d/configs/" (21074 26852 556825 574000) "ebib.elc" ".#matlab-mode.el" "custom.el" "defuns.el" "./" "auto-pair.el" "yasnippet-1.el" "tabbar.el" "org-mode.el" "#some.tex#" "psvn.el" "yasnippet.elc" "auto-complete" "google-c-style.el" "arduinoMode.el" "bindings.el" "ebib.el" "global.elc" "flyspell.el" "c-mode.el" "theme.el" "markMultiple.el" "latex.el" "gnuplot.el" "google-c-style.elc" "epix.el" "#latex.el#" "global.el" "latex.elc" "../" "color-theme-gruber-darker.el")
+
+ ("/home/igor/.emacs.d/" (21066 43830 336092 3000) "tramp" "#config#" "./" "session.10d1d4d3ec5c0511c4132912257836669300000008500239" "backups/" "ac-comphist.dat" "config.el~" "configs/" "session.10d1d4d3ec5c0511c4132907807383962900000008500238" "auto-save-list/" "eshell/" "vendor/" "session.10d1d4d3ec5c0511c4132912267916828200000008500240" "config.el" "../")
+
+ ("/home/igor/" (21074 26867 876824 626000) ".cache/" ".pulse-cookie" ".com.zerog.registry.xml" ".texlive/" ".zsh-update" ".local/" ".launchy/" ".java/" "Downloads/" ".zshrc" ".dbus/" ".ispell_british" "./" ".steam/" ".zsh_history" ".ts3client/" "Maple_Toolbox_Install_10_01_2013_12_44_41.log" ".ssh/" ".maple/" "Videos/" ".bashrc" ".adobe/" ".zcompdump" ".ICEauthority" ".gstreamer-0.10/" ".steampath" ".subversion/" ".emacs" "Desktop/" "weby-icon-cache/" ".ido.last" "mapleCode.org" "isus/" "emacsLaptop.tgz" ".wicd/" ".esd_auth" ".macromedia/" ".gitconfig" ".ngspice_history" "danid.log" "Public/" ".oh-my-zsh/" ".Xauthority" ".dropbox/" ".hedgewars/" ".emacs.d/" ".spicec/" "Documents/" "matlab/" "launchy.ini" "Music/" ".config/" ".InstallAnywhere/" ".xinitrc" ".matlab/" ".maplesoft/" ".xsession" ".steampid" "maple17/" ".gtkevemon/" ".kde4/" ".flexlmrc" ".pki/" "Maple_Player_Install_10_01_2013_12_20_18.log" "Templates/" ".wine/" ".wireshark/" "Dropbox/" ".xsession-errors" "Maple1702Linux32Upgrade.bin" ".Skype/" ".fluxbox/" ".bash_profile" "svn/" ".gnupg/" ".qucs/" ".thumbnails/" "update.sh" "mapleplayer/" ".bash_logout" "Pictures/" ".mapleplayer/" "launchy.db" "../" ".oces2/")
+
+ ("/home/igor/svn/project5/rep/" (21056 15033 980051 735000) "img/" "master.tex" "master.out" "master.log" "./" "Makefile" "master.toc" "master.blg" "master.aux" "set/" "master.pdf" "sec/" "master.bbl" "bib/" "app/" "master.tex.latexmain" "../")
+
+ ("/home/igor/svn/project5/" (21056 15047 13385 100000) "code/" "./" "courses/" ".svn/" "#lol.fag#" "rep/" "doc/" "../")
+
+ ("/home/igor/.fluxbox/" (21052 9562 325186 10000) "init" "keys" "slitlist" "menuconfig" "fbrun_history" "./" "overlay" "apps" "menu" "pixmaps/" "startup" "lastwallpaper" "backgrounds/" "windowmenu" "menu.bak" "styles/" "icons/" "startup~" "../")
+
+ ("/home/igor/Documents/" (21052 9453 180031 722000) "#test.tex#" "./" "#nexusOps.org#" "##test.tex##" "nexusOps.org" "####test.tex####" "mkdev.sh" "#test.org#" "filters.org" "###test.tex###" "../")
+
+ ("/home/igor/svn/project5/rep/sec/problem_analysis/" (21056 15033 963385 69000) "computer_platform.tex" "requirement_introduction.tex" "wireless_communication.tex" "./" "speaker.tex" ".#microphone.tex" "dig_sig_proc_buffers.tex" "#microphone.tex#" "microphone.tex" "requirement_interfaces.tex" "battery_life_wireless.tex" "requirement_system_functions.tex" "filters.tex" "../")
+
+ ("/home/igor/svn/project5/rep/sec/" (21042 60802 676689 863000) "etc/" "./" "intro/" "problem_analysis/" "../")
+
+ ("/home/igor/.gstreamer-0.10/" (21032 19913 776677 823000) "./" "registry.i686.bin" "../")
+
+ ("/home/igor/Desktop/" (21032 17961 136673 55000) "./" "steam.desktop" "maple17.desktop" "../")
+
+ ("/home/igor/svn/" (21037 37685 491839 476000) "./" "project5/" "../")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

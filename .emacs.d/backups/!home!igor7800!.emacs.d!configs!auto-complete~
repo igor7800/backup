@@ -1,0 +1,12 @@
+(require 'auto-complete-config)
+(auto-complete-mode t)
+
+
+; dirty fix for having Auto-complete everywhere
+(define-globalized-minor-mode real-global-auto-complete-mode
+  auto-complete-mode (lambda ()
+					                       (if (not (minibufferp (current-buffer)))
+                         (auto-complete-mode 1))
+                       ))
+(real-global-auto-complete-mode t)
+

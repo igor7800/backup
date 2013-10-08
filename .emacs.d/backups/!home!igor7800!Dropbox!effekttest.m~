@@ -1,0 +1,9 @@
+MAALT = dlmread('maalinger.csv', '\t', 9, 0);
+
+semilogx(MAALT(:,1), MAALT(:,2), KNAEK(:,1));
+legend('Simuleret', 'Maalt', 'Beregnet');
+title('Preamp frekvensrespons');
+xlabel('Frekvens/[Hz]');
+ylabel('Daempning/[dB]');
+
+print -depsc 'preamp.eps';

@@ -1,0 +1,12 @@
+void add7 (int x)
+{
+  x=x+7
+}
+
+int main (int argc, char *argv[]){
+  int a = 6;
+  add7(a);
+  printf ("%d\n",a);
+  
+  return 0;
+}

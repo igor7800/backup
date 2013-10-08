@@ -1,0 +1,32 @@
+clear
+gcc lektion1.c 
+./lektion1 
+clear
+ls
+clear
+gcc lektion1.c
+./lektion1 
+clear
+cls
+--help
+-help
+help
+help
+help
+clear
+cd ..
+cd ..
+cd .emacs.d/
+ls
+cd eshell/
+ls
+cd ..
+cd ..
+cd .emacs.d/eshell/
+ls
+?
++
+-
+-
+_
+$

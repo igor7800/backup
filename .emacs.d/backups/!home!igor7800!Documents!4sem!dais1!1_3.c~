@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+typedef struct 
+{
+  unsigned  short int c0: 1;
+  unsigned  short int c1: 1;
+  unsigned  short int c2: 1;
+  unsigned  short int c3: 1;
+  unsigned  short int c4: 1;
+  unsigned  short int c5: 1;
+  unsigned  short int c6: 1;
+  unsigned  short int c7: 1;
+  unsigned  short int c8: 1;
+  unsigned  short int c9: 1;
+  unsigned  short int c10: 1;
+  unsigned  short int c11: 1;
+  unsigned  short int c12: 1;
+  unsigned  short int c13: 1;
+  unsigned  short int c14: 1;
+  unsigned  short int c15: 1; 
+}bitefield ;
+
+typedef union 
+{
+  short int x;
+  bitefield y;
+}z;
+
+
+int checkcompliment (void)
+{
+  z a;
+  printf ("skriv et tal  ");
+  scanf("%d",&a.x);
+  printf (" \n");
+  printf ("binær %d%d%d%d %d%d%d%d %d%d%d%d %d%d%d%d\n", a.y.c15,a.y.c14,a.y.c13,a.y.c12,a.y.c11,a.y.c10,a.y.c9,a.y.c8,a.y.c7,a.y.c6,a.y.c5,a.y.c4,a.y.c3,a.y.c2,a.y.c1,a.y.c0);
+ a.x=-a.x;
+ printf ("negativ %d%d%d%d %d%d%d%d %d%d%d%d %d%d%d%d\n", a.y.c15,a.y.c14,a.y.c13,a.y.c12,a.y.c11,a.y.c10,a.y.c9,a.y.c8,a.y.c7,a.y.c6,a.y.c5,a.y.c4,a.y.c3,a.y.c2,a.y.c1,a.y.c0);
+ }
+
+//////////////////////////////////
+int main (int argc, char *argv[]){
+  checkcompliment();
+  return 0;
+}

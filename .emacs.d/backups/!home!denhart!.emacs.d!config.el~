@@ -1,0 +1,25 @@
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
+(setq custom-file "~/.emacs.d/configs/custom.el")
+(load custom-file 'noerror)
+
+;Load conf files
+(load "configs/global")
+(load "configs/defuns")
+(load "configs/latex")
+(load "configs/bindings")
+(load "configs/theme")
+(load "configs/org-mode")
+
+;Load packages 
+(vendor 'color-theme-gruber-darker)
+(vendor 'psvn          'svn-status)
+(vendor 'yasnippet)
+(vendor 'tabbar)
+(vendor 'auto-complete)
+(vendor 'google-c-style)
+(vendor 'gnuplot)
+(vendor 'highline)
+(vendor 'ebib)
+(vendor 'epix)
+

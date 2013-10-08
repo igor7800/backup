@@ -1,0 +1,12 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+
+entity program is
+  Port(
+    LED: out std_Logic(3 downto 0);
+    BTN: in std_Logic(3 downto 0)
+);

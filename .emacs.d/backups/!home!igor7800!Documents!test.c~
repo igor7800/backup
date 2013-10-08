@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+
+void sleep (int time)
+{
+  int i,j,loop;
+  loop = 1000 * time;
+  for (i=1; i < loop ; ++i)
+     for (j=1; j < loop; ++j)
+     {} 
+}
+
+
+
+int main()
+{
+  while(1)
+    {    
+      printf ("hey\n");
+      sleep(10);
+    }
+}
+

@@ -1,0 +1,210 @@
+/**
+ * Set a pin on GPO high or low
+ * @param channel contains the channel of the GPO (1, 2, 3 or 4) to 
+ * @param pin Pin to write to, can be from 0 to 31 
+ * @param value Value to write to output, can be LOW or HIGH
+ */
+
+u8 digitalWrite(unsigned channel,u8 pin, u8 value)
+{
+  XIOModule FCS;
+  u32 pinOut,pinIn;
+  pinIn = XIOModule_DiscreteRead(&FCS,channel);
+  pinOut = 0x0001 << pin; 
+  if (value == 0) pinOut = ~pinOut | ~pin;  
+  if (value == 1) pinOut =  pinOut |  pin;    
+  else return 1;
+  XIOModule_DiscreteWrite(&FCS,channel,pinOut);
+}
+
+
+
+
+/**
+ * Write enable.
+ * @param FCS chip select pin
+ */
+void s25WE (u8 FCS)
+{
+  digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(WREN);                         // send write enable command
+    digitalWrite(1,FCS, HIGH);                    // chip select is logic high
+}
+
+/**
+ * Write disable.
+ * @param FCS chip select pin
+ */
+void s25WD (u8 FCS)
+{
+  digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(WRDE);                        // send write disable command
+    digitalWrite(1,FCS,HIGH);                     // sets chip select to high
+}
+
+/**
+ * Reset flash.
+ * @param FCS chip select pin
+ */
+void s25Reset (u8 FCS)
+{
+  digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(RESET);                       // send write disable command
+    digitalWrite(1,FCS,HIGH);                     // sets chip select to high
+}
+
+/**
+ * Read status register and run loop as long as there is any bits in status register that set to "1!"
+ * @param FCS chip select pin
+ */
+void s25ReadStatReg (u8 FCS)
+{
+    u8 = 1;
+    digitalWrite(1,FCS,LOW);                               // chip select is logic low
+    spiTran(RDSR1);                                 // read status register
+    while(i==1) {
+        u8 red = spiTran(DUMMY);        // dummy byte
+        // Serial.print("status register:  ");
+        //Serial.println(red,BIN);
+        delay(1);
+        if(red == DUMMY) {
+	  digitalWrite(1,FCS,HIGH);                      // chip select is logic high
+            i=0;
+        }
+    }
+}
+
+
+/**
+ * Read data on 3 byte address.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @return readed Data on address adr.
+ */
+u8 s25Read (u8 FCS, u32 adr)
+{
+    u8 red = 0;
+    digitalWrite(1,FCS, LOW);                     // chip select is logic low
+    spiTran(READ);                         // begin read command
+    spiTran((adr & 0x00FF0000) >> 16);
+    spiTran((adr & 0x0000FF00) >> 8);
+    spiTran((adr & 0x000000FF) >> 0);
+    red = spiTran(DUMMY);           // take input and load it to "readed"
+    digitalWrite(1,FCS, HIGH);                    // chip select is logic high
+    return red;
+}
+
+/**
+  * Write data to 3 byte address.
+  * @param FCS chip select pin
+  * @param data Data to be written to address.
+  * @param adr First 3 rightmost bytes contain address.
+  */
+u8 s25Program(u8 FCS,u32 adr, u8 data)
+{
+    s25WE(FCS);                                         // write enable command
+    digitalWrite(1,FCS, LOW);                            // chip select is logic low
+    spiTran(PP);         
+    spiTran((adr & 0x00FF0000) >> 16);
+    spiTran((adr & 0x0000FF00) >> 8);
+    spiTran((adr & 0x000000FF) >> 0);
+    spiTran(data);
+    digitalWrite(1,FCS,HIGH);                            // sets chip select to high
+    s25ReadStatReg(FCS);                                // Read the status register
+    
+
+}
+
+/**
+ * Write page of data in form of an unsigned char data array .
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @param *data  Pointer to data array to program, may max be 256 bytes long!
+ * @param datalen Defined number of loops must be done to program data,
+ * must be as big as array(if array is data[256], datalen must be 256)
+ */
+u8 s25ProgramEx (u8 FCS,u32 adr,u8 *data,u8 datalen)
+{
+    unsigned char i;
+    s25WE(FCS);                                                // write enable command
+    digitalWrite(1,FCS,LOW);                                    // chip select is logic low
+    spiTran(PP);            
+    spiTran((adr & 0x00FF0000) >> 16);
+    spiTran((adr & 0x0000FF00) >> 8);
+    spiTran((adr & 0x000000FF) >> 0);
+    for(i=0 ; i<datalen ; i++) {                             // Initializing loop
+      spiTran(data[i]);
+    }
+    digitalWrite(1,FCS,HIGH);                                   // sets chip select to high
+    s25ReadStatReg(FCS);// Reading the status register 
+}
+
+/**
+ * Read a page of data from flash.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @param *data  Pointer to data array to read to, may max be 256 bytes long!
+ * @param datalen Defined number of loops must be done to program data,
+ * must be as big as array(if array is data[256], datalen must be 256)
+ */
+void s25ReadEx (u8 FCS,u32 adr, u8 *red, u8 datalen)
+{
+    u8 i;
+    digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(READ);
+    spiTran((adr & 0x00FF0000) >> 16);
+    spiTran((adr & 0x0000FF00) >> 8);
+    spiTran((adr & 0x000000FF) >> 0);
+    for (i = 0; i<datalen; i++) {              // Initializing loop
+      red[i] =  spiTran(DUMMY);
+    }
+    digitalWrite(1,FCS,HIGH);                     // chip select is logic high
+}
+
+/**
+ * Delete byte of data at 3 byte address.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ */
+void s25Erase (u8 FCS,u32 adr)
+{
+    s25WE(FCS);                                  // write enable command
+    digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(SE);
+    spiTran((adr & 0x00FF0000) >> 16);
+    spiTran((adr & 0x0000FF00) >> 8);
+    spiTran((adr & 0x000000FF) >> 0);
+    digitalWrite(1,FCS,HIGH);                     // chip select is logic high
+    s25ReadStatReg(FCS);                         // Read the status register
+}
+
+
+/**
+ * Delete everything in flash memory array.
+ * @param FCS chip select pin
+ */
+void s25EraseAll (u8 FCS)
+{
+  u32 i,adr; 
+  for (i = 0; i < 255 ; i++){
+    adr = 0x0000FFFF * i;
+    s25Erase(FCS,adr);
+    Serial.print("deleted sector Nr ");
+    Serial.println(i);
+  }
+}
+
+/**
+ * Resets Status and Instruction registers
+ * @param FCS chip select pin
+ */
+void s25WriteReg (u8 FCS)
+{
+    s25WE(FCS);                                  // write enable command
+    digitalWrite(1,FCS,LOW);                      // chip select is logic low
+    spiTran(WRR);
+    spiTran(DUMMY);
+    spiTran(DUMMY);
+    digitalWrite(1,FCS,HIGH);                     // chip select is logic high
+    s25ReadStatReg(FCS);                         // Read the status register
+}

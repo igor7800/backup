@@ -1,0 +1,160 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage[danish]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{hyperref}
+
+\begin{document}
+\chapter{Samarbejdsaftale}
+\paragraph{§1 Gyldighed}
+\begin{itemize}
+\item stk. 1 Aftalen gælder for P2 projektperioden
+\item stk. 2 Alle i gruppen har samme ansvar for aftalerne og lign.
+\end{itemize}
+\paragraph{§2 Politik }
+\begin{itemize}
+\item stk 1. Alle i gruppen har pligt til at arbejde koncentreret med et udleveret stykke arbejde, så hele gruppen kan arbejde mod et fælles mål
+\item stk 2. Det er den enkeltes person ansvar, at meddele hvis et givet stykke arbejde, tager længere tid i forhold til tidsplanen
+\item stk 3. Hvis der er overskridelser i tidsplanen, tages en samlet beslutning i gruppen
+\end{itemize}
+\paragraph{§3 Mødetider}
+\begin{itemize}
+\item stk 1. Alle møder til gruppe arbejdstimerne, som ligger mellem 8.15 til 16.15
+\item stk 2. Det er tilladt at arbejde hjemme, hvis dette er aftalt med gruppen dagen før
+\item stk 3. Ændringer af mødetider kan ske, som en samlet beslutning i gruppen.
+\end{itemize}
+
+\paragraph{§4 Bødetakster}
+\begin{itemize}
+\item stk 1. 5 - 15 min accepteres over en kortere periode. 
+\item stk 2. Hvis en person bliver forsinket, har den enkelte pligt til at informere resten af gruppen herom
+\item stk 3. Er man mere end 30 min forsinket, diskuteres det i gruppen, om den enkelte person, skal give kage eller øl
+\end{itemize}
+
+\paragraph{§5 Pauser}
+\begin{itemize}
+\item stk 1. Efter forelæsning 30 min.
+\item stk 2. Formiddag (ca. 11.00) 30 min.
+\item stk 3. Eftermiddag (ca 13.00) 30 min
+\item stk 4. Små pauser i løbet af dagen.  
+\end{itemize}
+\paragraph{§6 Kommunikation}
+\\
+Telefon/Mailordning
+\begin{itemize}
+\item Henrik Aarup Vesterager	             31554677                have11@student.aau.dk
+\item Jacob Hjortshøj Nielsen	             50721760                jhni11@student.aau.dk
+\item Rasmus Thomas Wallin Hermansen	     22722220                rherma11@student.aau.dk
+\item Søren Bøgeskov Nørgaard	             27850736                snarga11@student.aau.dk
+\item Malthe Bilgram Jensen	               31359232                maljen11@student.aau.dk
+\item Igor Aleksandrovich Syrytsin	       31585632                isyryt11@student.aau.dk
+\item Lasse Thomsen                        23237161 	             lthom11@student.aau.dk \\\\
+\item stk 1. I tilfælde med afbud, er det ok kun at informere et gruppemedlem
+\item stk 2. Det er vigtigt at modtageren, videre giver beskeden til de øvrige gruppemedlemmer
+\end{itemize}
+
+\paragraph{§7 Versionsstyring}
+\begin{itemize}
+\item stk 1. Alle dokumenter samlet på en SVN server, hvor alle gruppemedlemmer har afgang 24/7
+\item stk 2. Det er op til den enkelte person, at opdatere og comitte SVN serveren
+\item stk 3. Før der comittes, skal dokumentet kompileres og der skal anvendes brugbare kommentar
+\item stk 4. Før kode comittes, skal det kunne kompileres og der skal anvendes brugbare kommentar 
+\end{itemize}
+\paragraph{§8 Ordstyrer/leder}
+\begin{itemize}
+\item stk 1. Der udarbejdes en lederplan for hele projekt perioden
+\item stk 2. Lederen udskiftes hver uge, således at alle har mulighed for at være leder/ordstyrer
+\item stk 3. Referenten tager referat under vejleder møder og statusmøder
+\item stk 4. Der udvælges en referent under hele projekt perioden
+\end{itemize}
+\paragraph{§9 Arbejdsstruktur}
+\begin{itemize}
+\item stk 1.  Hele gruppen
+    \begin{itemize}
+    \item De overordnede beslutninger, bliver diskuteret i hele gruppen
+    \end{itemize}
+\item Delgrupper
+    \begin{itemize}
+    \item Der arbejdes i undergrupper, som koncentrere sig om enkelte dele af rapporten/produktet
+    \item Resultatet af arbejdet diskuteres og vurderes i hele gruppen efterfølgende
+    \end{itemize}
+\end{itemize}
+\paragraph{§10 Vejledermøder}
+\begin{itemize}
+\item stk 1. Der udsendes dagsorden for vejleder mødet senest 2 dage, før det aftalte vejleder møde
+\item stk 2. Materiale der skal evalueres under vejleder mødet, vedhæftes i mailen sammen med dagsordnen
+\item stk 3. Vejlederen står for kaffe
+\item stk 4. Faste punkter på dagsordnen er:
+    \begin{itemize}
+    \item Godkendelse af dagsordnen
+    \item Godkendelse af referat af sidste møde
+    \item Projektstatus inkl. samarbejdet
+    \item Punkter til vejlederen
+    \item Planlægning af nyt møde
+    \end{itemize}
+\end{itemize}
+\paragraph{§11 Rengøring}
+\begin{itemize}
+\item stk 1. Hvert gruppe medlem har ansvar for at rydde op efter sig selv
+\end{itemize}
+\paragraph{§12 Krav og mål for P2}
+\begin{itemize}
+\item stk. 1 Alle gruppens medlemmer skal sættes ind i alt teori anvendt i rapporten
+\item stk. 2 Alle gruppens medlemmer skal arbejde engageret
+\end{itemize}
+\paragraph{§13 Statusmøder}
+\begin{itemize}
+\item stk 1. Status møde hver dag (ca. 5 min)
+\item stk 2. Der afholdes to omfattende statusmøder 2 gange om ugen
+\item stk 3. Der taget referat af de omfattende statusmøder
+\end{itemize}
+\paragraph{§14 Kilder}
+\begin{itemize}
+\item stk 1. Alle kilder SKAL dokumenteres og der tages en kopi (I PDF format), som ligges på SVN-serveren
+\item stk 2. Alle kilder SKAL ligges ind i bibtex biblioteket, løbende. 
+\end{itemize}
+\paragraph{§15 Tidsplan}
+\begin{itemize}
+\item stk 1. Alle i gruppen har pligt til at opdatere tidsplanen på Trac 
+\item stk 2. Gruppen informeres om ændringer i tidsplanen
+\item stk 3. Trac, SKAL opdateres løbende
+\item stk 3. Deadlines og milepæle overholdes, jo mindre andet er aftalt
+\end{itemize}
+
+
+\subsection{Vejleder}
+
+\paragraph{§1 Gyldighed}
+\begin{itemize}
+\item stk 1. Aftalen gælder for P2 projekt perioden
+\end{itemize}
+\paragraph{§2 Aftalen er gældende for}
+\begin{itemize}
+\item stk 1. Hovedvejleder Jens Dalgaard
+\item stk 2. Bivejleder Jens Kaae Fisker 
+\item stk 3. Alle gruppemedlemmer 
+\end{itemize}
+\paragraph{§3 Tilbagemelding/respons}
+\begin{itemize}
+\item stk 1. Respons sendes på skrift eller gives på vejledermøde
+\item stk 2. Kort feedback gives på mail og større feedback gives på vejledermøder
+\item stk 3. Det skal være klart angivet til vejlederen, hvad der skal gennemlæses og gives kritik på
+\end{itemize}
+\paragraph{§4 Møder}
+\begin{itemize}
+\item stk 1. Vejlederen har retten til at afbryde et møde, hvis flere af gruppemedlemmerne udebliver uden grund
+\item stk 2. Dagsordnen sendes til vejlederen inkl. dokumenter to hverdage før mødet, med mindre andet aftalt 
+\item stk 3. Gruppen styrer mødet
+\item stk 4. Der afholdes som minimum vejledermøde 1 gang om ugen
+\end{itemize}
+\paragraph{Vejlederens ansvar}
+\begin{itemize}
+\item stk 1. Vejlederen tager ikke beslutning for gruppen, men vejlederen dem i den rigtige retning
+\item stk 2. Vejlederen holdes ikke ansvarlig for forkert information
+\end{itemize}
+
+\end{document}

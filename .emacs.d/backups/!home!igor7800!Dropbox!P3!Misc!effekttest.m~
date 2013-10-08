@@ -1,0 +1,8 @@
+MAALT = dlmread('maalinger.csv', '\t', 9, 0);
+
+semilogx(MAALT(:,1), MAALT(:,2), KNAEK(:,1));
+title('Preamp frekvensrespons');
+xlabel('Frekvens/[Hz]');
+ylabel('THD/[%]');
+
+print -depsc 'effampTHD.eps';

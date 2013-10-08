@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define WHNUM  5
+#define SYSNUM 8
+
+
+ struct whSystem  
+{
+  char number[SYSNUM];   //wh number
+  int  class;            //wh class
+  char effect;           //mag,red,pul,wol,cat,bla
+  char static1[WHNUM];   //static wormhole
+  char static2[WHNUM];   //2d static
+  int numberOfStatics;
+  struct whSystem  *nextWh ;
+};
+
+ 
+
+ struct whSystem  *addWH  (struct whSystem  *start) 
+{
+ struct whSystem *whPtr = (struct whSystem *) malloc(sizeof(struct whSystem)); 
+  whPtr -> nextWh =  start;
+  //
+  printf ("WH system j number: \n");
+  scanf  ("%s",&whPtr->number);
+  //
+  printf ("WH system effect: \n");
+  printf ("Enter 'm' for magnetar\n");
+  printf ("Enter 'r' for red giant\n");
+  printf ("Enter 'p' for pulsar\n");
+  printf ("Enter 'w' for wolf rayet\n");
+  printf ("Enter 'c' for cataclysmic variable\n");
+  printf ("Enter 'b' for black hole: ");
+  printf ("\n");
+  scanf  ("%s", &whPtr->effect);
+  printf ("\n");
+  //
+  printf ("WH system class: \n");
+  scanf  ("%d",&whPtr->class);
+  //
+  printf ("Enter number of statics: \n");
+  scanf ("%d", &whPtr->numberOfStatics);
+  switch (whPtr->numberOfStatics){
+    case 1:
+      printf ("Enter static wormhole number: \n");
+      scanf ("%s",&whPtr->static1);
+      break;
+      
+    case 2:
+      printf ("Enter first static wormhole number\n");  
+      scanf ("%s",&whPtr->static1);      
+      printf ("Enter 2d static wormhole number\n");  
+      scanf ("%s",&whPtr->static2);      
+      break;
+      
+    default:
+      printf ("Wormhole can't have more then 2 statics\n");
+      break;          
+  }
+  return whPtr;
+} ; 
+
+
+void findWh (char number[SYSNUM])
+{
+  while(whPtr != NULL){
+    if(whPtr->number  == number ){
+      printf ("%s\n",whPtr->number);
+      printf ("%s\n",whPtr->effect);
+      printf ("%d\n",whPtr->class);
+      switch (whPtr->numberOfStatics){
+        case 1:
+          printf ("static wormhole number: \n");
+          printf ("%s",&whPtr->static1);
+          break;
+          
+        case 2:
+          printf ("first static wormhole number\n");  
+          printf ("%s",whPtr->static1);      
+          printf ("2d static wormhole number\n");  
+          printf ("%s",whPtr->static2);      
+          break;              
+      }
+    }
+    else whPtr = whPtr->nextWh;
+  }  
+}
+
+
+
+int menu (void)
+{
+  int selection;
+  printf ("Options:\n");
+  printf ("1) Add wormhole system\n");
+  printf ("2) Delete wormhole system\n");
+  printf ("3) Exit\n");
+  scanf ("%d",&selection);
+  return selection;
+}
+
+
+int main (int argc, char *argv[])
+{
+  struct whSystem *newWh;
+  int i =0;
+  while(i!=3){
+  i = menu();
+  if (i==1) newWh=addWH(newWh);
+  
+  }
+  return 0;
+}
+

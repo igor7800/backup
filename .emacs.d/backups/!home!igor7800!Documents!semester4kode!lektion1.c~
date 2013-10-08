@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int endian() {
+   long x=1;
+   char *p;
+   p=(char *)&x;
+   if (p[0]) return 0;
+   return 1;
+}
+
+int main() {
+   if (endian()) printf("Big endian\n");
+   else printf("Little endian\n");
+   return 0;
+}

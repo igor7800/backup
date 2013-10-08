@@ -1,0 +1,9 @@
+\subsection{Udgangs/indgangs impedans}
+\label{sec:aux-impedans}
+
+Det er altid vigtigt at vide hvor stor er impedanserne inde i systemet. I kravspecifikation blevet der stillet flere krav om impedanserne, bland andet udgangs og indgangsimpedanserne. I dette sektion skal der beregnes udgangs og indgangs impedanserne af line(aux) forforstærker. 
+
+Emitterfølger transistorkobling er kendetegnet for sin lave udgangsimpedans. Dette kan findes ved at påtrykke en spændningkilde på udgangen og beregne strømmen, som kredsløbet trækker. Der skal bland andet bruges en småsignals model for en transistor.
+Udgangsimpedans kan skrives på en formel $Z_{o} = \frac{\bigtriangleup V_{o}}{\l 
+
+

@@ -1,0 +1,45 @@
+import shutil
+import datetime
+from urllib.request import urlopen
+from urllib.error import URLError
+from xml.dom import minidom
+usecache = 0
+ 
+try:
+  #print("Downloading")
+  skemaxml = urlopen("http://sict.moodle.aau.dk/calmoodle/xml_kursusgange.php?unixstart=1343599200&unixslut=1359932340&semesterId=227", timeout = 5)
+ 
+except URLError:
+  #print(" lolol")
+  usecache = 1 
+ 
+if usecache != 1:
+  with open("/home/denhart/.cache/conky/skema.xml", 'wb') as fp:
+    shutil.copyfileobj(skemaxml, fp)
+ 
+ 
+ 
+currentweek = int(datetime.date.today().isocalendar()[1])
+#Check if caturday!
+ 
+xmldoc = minidom.parse("/home/denhart/.cache/conky/skema.xml")
+ 
+kursusgange = xmldoc.getElementsByTagName("kursusgange")[0]
+kursusgangz = xmldoc.getElementsByTagName("kursusgang")
+ 
+for kursusgang in kursusgangz:
+  weeknumber = int(kursusgang.getElementsByTagName("uge")[0].firstChild.data)
+  if weeknumber == currentweek:
+    kursusnavn = kursusgang.getElementsByTagName("kursus-navn")[0].firstChild.nodeValue
+    kursusnavn = str(kursusnavn.split("(")[0])
+    if "Engineering Mathematics for Electronic Engineers 1" in kursusnavn:
+      kursusnavn = str("Engineering Mathematics")
+ 
+    kursusdag = str(kursusgang.getElementsByTagName("dag")[0].firstChild.data)
+    kursusdag+=str(":")
+    kursusstart = kursusgang.getElementsByTagName("time-start")[0].firstChild.data
+    kursusslut = kursusgang.getElementsByTagName("time-slut")[0].firstChild.data
+ 
+    #print(kursusnavn, "-", kursusdag, kursusstart,"-",kursusslut)
+    #print(kursusdag, kursusnavn, kursusstart)
+    print("{:10} {:33} {}".format(kursusdag,kursusnavn, kursusstart))")"))

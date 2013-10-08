@@ -1,0 +1,11 @@
+#include <pthread.h>
+#include <stdio.h>
+
+pthread_t tid ;
+int kurt;
+void* thread
+
+
+
+
+)

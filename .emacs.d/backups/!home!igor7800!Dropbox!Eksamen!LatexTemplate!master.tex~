@@ -1,0 +1,320 @@
+\input{settings/preamble}
+\begin{document}
+\input{settings/titlepage}
+\section{Opgave 1}
+\paragraph{a)}
+%\FloatBarrier
+%\lstinputlisting[language=c, caption=Kode snippet til opgave 1a, label=lst:opg1a]{kode/opg1a.c}
+Dette blev implementeret ved hjælp af for-loop, som kører baglæns. 
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+
+int main (void)
+{
+  int i;
+  for (i = 1000; i > 0; i--){
+    if (i==777){}
+    else printf ("%d\n",i);
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{b)}
+n blev lavet om til en int og str blev lavet om til en char.
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+#include <string.h>
+int main (void){
+  char str[3];
+  int n;
+  str[0]='H';
+  str[1]='e';
+  str[2]='j';
+  n=strlen(str);
+printf ("Strengen 'Hej's længde er: %d\n",n);
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{c)}
+ ``Include'' kan bruges til at includere bibliotek filer, som kan både være vores egen og allerede eksisterende i systemet, som ``stdio.h''. Hvis der er ikke muligt at bruge ``include'' kan man difinere alle funktioner ovenfor ``main'' funktion og bruge dem i main bagefter, men dette gøre kodefilene længere og mere ulæslig.   
+
+\paragraph{d)}
+Funktion ``inc'' blev lavet om sådan at den retunere en int.
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+
+int inc(int n)
+{
+  return n=n+1;
+}
+
+int main (void){
+  int a=6;
+  printf ("%d\n", inc(a));
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{e)}
+Der kan bruges bobblesort algoritme, som begynder først at tjække sidste to tal og bytter dem, hvis de stå i forkert rækkefølge, derefter de forrie to tal skal tjekkes og byttes hvis de stå i forkert rækkefølge. Sådan køre algoritmen ind til den ankommer til den første to tal, derefter hopper den tilbare til sidste to tal. Dette blev kørt ind til tallene stå i rigtig rækkefølge.
+ 
+\begin{lstlisting}
+ 1 2 4 7 9 13 5 2 9 9
+ 1 2 4 7 9 13 5 2 9 9
+ 1 2 4 7 9 13 5 2 9 9
+ 1 2 4 7 9 13 2 5 9 9
+ 1 2 4 7 9 2 13 5 9 9
+ 1 2 4 7 2 9 13 5 9 9
+ 1 2 4 2 7 9 13 5 9 9
+ 1 2 2 4 7 9 13 5 9 9
+ ...
+ 1 2 2 4 5 7  9 9 9 13
+\end{lstlisting}
+
+\paragraph{f)}
+ Et element er en struct, som skal indeholde en pointer til det næste element. Dette struct kan også indeholde hvilken som helst data.
+ En eksampel på en element kan ses på listing nedunder.
+\begin{lstlisting}[language=C,numbers=none]
+ struct person
+ {
+   int alder;
+   char forNavn[15];
+   char efterNavn[15];
+   struct person *next;
+ }
+ struct person jens;
+\end{lstlisting}
+
+\paragraph{g)}
+Man skal løbe hele liste igennem, før der kan tilføget en ny element. Fordele ved det at der skal kun ændres i en pointer, som gør det nemt. 
+
+\paragraph{h)}
+-1  anden kompliment 11111111 
+ 
+-16 anden kompliment 11110000 
+
+-33 anden kompliment 11011111 
+
+104  i binært er 01101000
+
+
+\paragraph{i)}
+Den mindste værdi på 8 bit arkitektur i signed format er $-0$ eller 10000000.
+Den største værdi på 8 bit arkitektur i signed format er 127, eller 11111111, hvor den første bit bestemmer fortegnet.
+
+\paragraph{j)}
+Der kan ses at der sker en overflow, fordi den første bit i signed operation er reserveret til fortegnet.
+\begin{align*}
+   &01100101\\
+  +&00011011\\
+  =&10000000
+\end{align*}
+
+
+\section{Opgave 2}
+
+\paragraph{a)}
+Flowchart over det himlige funkion kan ses på en Figur~\ref{fig:flow}
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{img/flowchart}
+  \caption{flowchart af hemligFunktion}
+  \label{fig:flow}
+\end{figure}
+
+
+\paragraph{b)}
+Forklaringen af koden kan ses nedunder i kodekommentar.  
+\begin{lstlisting}[language=picoblaze,numbers=none]
+hemligFunktion:
+start:
+	FETCH   s0 , s1		;indeholdet af register s1 blev fetchet til s0
+	COMPARE s0 , 00		;tester om indeholdet af s0 er lige med "0"
+	JUMP    Z  , finished	;hopper til "finished" label hvis zero flag blev sat og indeholdet af s0 lige med "0" 
+	COMPARE s0 , $61	;tester og indeholdet af s0 lige med $61
+	JUMP    C  , skip	;Hvis carry flag blev sat hopper til "skip" label, som betyder at $61 er større end indeholdet af s0 
+	COMPARE s0 , $7A	;tester om s0 lige med $7a 
+	JUMP    NC , skip	;hopper til skip hvis carry fag ikke blev sat
+	SUB     s0 , $20 	;trækker $20 fra register s0
+	STORE   s0 , s1		;gemmer indeholdet af s0 inde i s1
+skip:
+	ADD     s1 , $01	;addere $01 til register s1
+	JUMP 	start		;Hopper tilbage til starten af programmet
+finished:
+	RETURN
+\end{lstlisting}
+
+\paragraph{c)}
+Hver instruktion på picoblaze tager 2 clock cykler, derfor hele programmet tager 24 clock cykler.
+
+\section{Opgave 3}
+\paragraph{a)}
+I sekventiel programmering blev kode eksekveret sekventielt, men ved hjælp af multiprogramming kan man køre flere threads "parallelt", dette betyder at hver af dem får lidt tid til at køre. Når dette sker hurtigt nok, sker der en illusion at disse kører parallelt. 
+
+\begin{lstlisting}[language=C,numbers=none]
+#include <pthread.h>
+#include <stdio.h>
+pthread_t tid;   //variable for CPR number
+
+void* thread1(void* a1) //thread 1
+{
+  for(;;) printf ("Hej from thread1\n");
+}
+
+void* thread2(void* a1) //thread 2
+{
+  for(;;) printf ("Hej from thread2\n");
+}
+
+int main (int argc, char *argv[]){
+  printf ("Hej start\n");
+  for (;;){
+  pthread_create(&tid,NULL,thread1,NULL);
+  pthread_create(&tid,NULL,thread2,NULL);
+  printf ("\n");
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{b)}
+ Der kan laves en mutex struktur ved hjælp af semaforer. Mutex sørge for at der kun en thread kan lave andringer på variabel. 
+
+Der kan laves en system, hvor thred begynder at køre og lave andringer på variabel kun når der blev sent en massage til den.
+
+Dette fortrækkes når der man vil kommunikere med en thread og køre den præsis når vi har lyst.  
+
+\paragraph{c)}
+Ja de kører begge 5 gange i sekundet, og hver task får lige så meget CPU tid, hvis der blev brugt Round-robin. Hvis der blev brugt frivillig(nonpreemptive) programmet kommer til at sidde fast i while loop i den første task, som den kommer til køre.
+
+\paragraph{d)}
+Hvis der blev brugt round robin følges taskene godt i tid, og disse to stykker kode tager det lige så lang tid at execute.
+
+Hvis der blev brugt frivillig skedulering kommer en af taskene til at køre væk fra den anden, og den anden får aldrig lov til at køre. 
+OA
+
+\paragraph{e)}
+Task 1 bestå af uendelig loop, hvilket kører så længe $1=1$, dette betyder at under frivillig skedulering, hvis task 1 får lov til at køre først kommer den til at sidde fast i uendelig loop.
+
+\paragraph{f)}
+Ja, skift mellem taskerne bliver mere langsomt.
+
+\paragraph{e)}
+Løsning er at lave to kodestykker: en for producer side og den anden for consumer side. Ideen er at producer sender en character til consumer.
+\begin{lstlisting}[language=C,numbers=none]
+//producer kode
+event = waitForEvent(); //venter på der sker en event  
+mutex_wait();
+  buffer_add(event); //addere event til buffer
+  items_signal(); //signalere hver gange når der er item i buffer
+mutex_signal();  
+
+//consumer kode
+items_wait(); //resten af koden blever kørt når der ankommet en item.
+mutex_wait();
+  event=buffer_get();
+mutex_signal();
+event_process();
+\end{lstlisting}
+
+\paragraph{f)}
+Der laves en timerInterrupt funktion, som kan signalere til simaforen, hver "time" sek.
+\begin{lstlisting}[language=C,numbers=none]
+sem_t semID;
+
+timerInterrupt(time,isr_signal(semID));
+void* thread1(void* a1)
+{
+  isr_wait(semID);
+  //stuff
+  isr_signal(semID);
+
+}
+\end{lstlisting}
+
+\paragraph{g)}
+\begin{lstlisting}
+^ prioritet
+|
+|          tråd2 
+|          -------
+|
+|  tråd 1          tråd 1
+| ---------       --------------
+|
+|                       |deadline        
+|______________________________________> tid
+\end{lstlisting}
+\paragraph{h)}
+
+\paragraph{i)}
+
+
+
+\section{Opgave 4}
+
+\paragraph{a)}
+\paragraph{i)}
+$U=\sum\limits_{i=1}^N \frac{c_i}{T_i} = \frac{c_1}{T_1}+\frac{c_2}{T_2}+\frac{c_3}{T_3} = \frac{2}{10}+\frac{2}{10}+\frac{3}{7}= 828.57E-3 < 1$
+
+\paragraph{ii)}
+Ja de kan afvikles stabilt, fordi $U<1$
+
+\paragraph{iii)}
+På Figur~\ref{fig:tasks1} kan ses at $\tau_1$ 's første job kan afvikles under round robin sådan at deadline overholdes. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{img/round-robin}
+  \caption{afvikling af tasks under round-robin}
+  \label{fig:tasks1}
+\end{figure}
+
+\paragraph{iv)}
+På Figur~\ref{fig:tasks1} kan ses at $\tau_3$ 's første job kan afvikles under round robin sådan at deadline overholdes.
+
+
+\paragraph{b)}
+
+\paragraph{i)}
+Under RMA prioriteten blevet givet til tasks med lavest periodetid, det betyder at jo mindre er periodetid, jo højre er prioritet. Rækkefølge er task3 - task1 - task2, eller task3 - task2 - task1. 
+
+\paragraph{ii)}
+Under DMA prioriteten blevet givet til tasks med lavest deadline,det betyder at jo mindre er deadline, jo højre er prioritet. Rækkefølge er task1 - task3 - task2.
+
+\paragraph{iii)}
+
+item Der blev undersøgt om task nummer et kan kan afvikle jobs indenfor deadline, ved hjælp af eksakte kriterium.
+  $C_j=c_i+\sum\limits_{j=1}^{j-1} \lceil\frac{t}{T_j}\rceil \cdot c_j   $ 
+I dette tilfælde $T_1=10,c_1=2$
+
+$C_1=c_1=2$
+På Figur~\ref{fig:eks} kan ses at $C_1$ er lige med 2, som betyder at $c1=2<d2=6$, som betyder at task nummer to kan afvikle jobs indenfor deadline ved DMA.
+
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{img/eks}
+  \caption{Eksakte kriterium for task1}
+  \label{fig:eks}
+\end{figure}
+
+\paragraph{iv)}
+task1 har første prioritet, derfor vil den altid overholde deadline.
+task2 kan ses på en Figur~\ref{fig:eks2} at $C_2=4 < d_2=8$, som betyder at task2 vil altid overholde deadline.
+
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{img/eks2}
+  \caption{Eksakte kriterium for task2}
+  \label{fig:eks2}
+\end{figure}
+
+\paragraph{c)}
+\paragraph{i)}
+På en Figur~\ref{fig:edf} kan ses at deadlinene overholdes unde EDF.
+
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{img/edf}
+  \caption{Tasksettet afvikling under EDF}
+  \label{fig:edf}
+\end{figure}
+
+\end{document}

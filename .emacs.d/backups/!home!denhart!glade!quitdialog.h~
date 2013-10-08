@@ -1,0 +1,21 @@
+#ifndef GTKMM_EXAMPLE_DERIVED_DIALOG_H
+#define GTKMM_EXAMPLE_DERIVED_DIALOG_H
+
+#include <gtkmm.h>
+
+
+class DerivedDialog : public Gtk::Dialog
+{
+public:
+  DerivedDialog(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade);
+  virtual ~DerivedDialog();
+
+protected:
+  //Signal handlers:
+  void on_button_quit();
+
+  Glib::RefPtr<Gtk::Builder> m_refGlade;
+  Gtk::Button* m_pButton;
+};
+
+#endif //GTKMM_EXAMPLE_DERIVED_WINDOW_H

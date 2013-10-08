@@ -1,0 +1,182 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[danish]{babel}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\usepackage{courier}
+\usepackage{icomma}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{bbding}
+%\usepackage{wrapfig}
+\usepackage{subfig}
+%\usepackage{siunitx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{listings}
+
+\begin{document}
+\begin{center}
+  
+    % Upper part of the page
+    \vspace*{0.5cm}
+   % \includegraphics[width=5cm]{images/RapportLogo}\\[0.8cm]
+    \textsc{\LARGE Aalborg Universitet}\\[0.6cm]
+    \textsc{\Large Elektronik \textit{\&} IT\\Første studieår}\\[0.8cm]
+  
+    % Title
+     { \huge \bfseries A219}\\[0.50cm]
+    
+    { \huge \bfseries SSU Workshop 1: Kravspecifikation}\\[0.1cm]
+    
+    
+    % Author and supervisor
+    \begin{minipage}[t]{0.49\textwidth}
+      \begin{flushleft} \large
+        \vspace{0pt} 
+        % \emph{Forfattere:}\\
+        % Henrik \textsc{Aarup Vesterager}\\
+        % Jacob \textsc{Hjortshøj Nielsen}\\
+        % Rasmus \textsc{Thomas Wallin Hermansen}\\
+        % Søren \textsc{Bøgeskov Nørgaard}\\
+        % Malthe \textsc{Bilgram Jensen}\\
+        % Igor \textsc{Aleksandrovich Syrytsin}\\
+        % Lasse \textsc{Thomsen}
+      \end{flushleft}
+    \end{minipage}
+    \begin{minipage}[t]{0.49\textwidth}
+      \begin{flushright} \large
+        \vspace{0pt}
+      \end{flushright}
+    \end{minipage}
+
+
+    \vfill
+%    \textit{Denne rapport må ikke gengives uden aftale med forfatterne}\\
+    \vspace{1cm}
+    % Bottom of the page
+
+    {\large December 2011}
+\end{center}
+\newpage
+\section{Kravspecifikation}
+\label{sec:kravspecifikation}
+
+\subsection{Indledning}
+\label{sec:indledning}
+
+\subsection{Generel beskrivelse}
+\label{sec:beskrivelse}
+
+\subsubsection{Solcelle}
+\label{sec:solcelle}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{/home/denhart/Dropbox/P0/SolcelleUC}
+  \caption{Solcelle kreds use case }
+  \label{fig:sol}
+\end{figure}
+
+
+Solcelle kredsen har 3 overordnede funktioner.
+\begin{itemize}
+\item Modtage energi
+\item Konvertere 
+\item Levere energi
+\end{itemize}
+
+Der er to overordnede aktører
+\begin{itemize}
+\item Solen
+\item PSU
+\end{itemize}
+
+Modtag Energi
+Aktører: Sol
+Solen leverer energien (lys/varme), som solcellerne omdanner til elektrisk energi.
+
+Reg/Konv (SER)
+Aktører:
+Når solens energi (lys/varme) er blevet omdannet til elektrisk energi, træder Solcellens effekt regulator i kraft, og begynder at levere energi til resten af systemet.
+
+Levere
+Aktører: PSU
+PSU'en styrer hvad den leverede strøm skal bruges til.
+
+\subsubsection{Batteri}
+Batteriets funktion er at lagre energi når der er et overskud, og forsyne systemet, når der er et underskud.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{/home/denhart/Dropbox/P0/BatteriUC}
+  \caption{Batteri kreds use case }
+  \label{fig:sol}
+\end{figure}
+
+Modtage Energi
+Aktør: PSU
+Når solcellerne genererer et overskud af energi, vil PSU'en omdirigere denne strøm til batteriet for lagring til snere brug.
+
+2-vejs-Reg/Konv (BAR/BOR)
+Aktør:
+Alt efter om systemet har et overskud eller et underskud af energi, vil regulatoren bestemme hvad batteriets funktion har:
+*BAR - forsyner systemet ved underskud af energi
+*BOR - lagrer overskydende energi
+
+Levere
+Aktør: PSU
+Når solcellerne ikke længere kan levere den krævede energi, vil batteriet fungere som forsyning.
+
+\subsubsection{Strømforsyning}
+PSU'en har til formål at styre lagret og indkommende energi og evt manglen af begge.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics{/home/denhart/Dropbox/P0/PSUUC}
+  \caption{Solcelle use case }
+  \label{fig:sol}
+\end{figure}
+
+Modtage
+Aktører: Solcelle-kreds, Batteri-kreds
+PSU'en skal styre energien fra solcellerne samt batteriet. Ud fra systemets energi forbrug, kan PSU'en vælge at trække energi fra begge moduler, eller én af dem (aldrig ingen, da systemet altid bruger energi).
+
+Oplade Strøm
+Aktør: Batteri
+Hvis solcellerne leverer et overskud af energi, vil PSU'en benytte den krævede energi og lagre den den overskydende i batteriet. Dette gøres ved hjælp af batteriets opladnings-regulator (BOR).
+
+Overvåge
+Aktør: 
+PSU'en skal kunne overvåge og indsamle data om dets egen og systemets funktionalitet.
+
+Levere Strøm
+Aktør: DC-BUS
+DC-BUS'en forsyner systemet med den krævede energi. Det er via denne PSU'en regulerer strømmen fra Batteri og Solceller.
+
+Kommunikation
+Aktør: Hovedcomputer
+Sattelitten skal kunne kommunikere med hovedcomputeren - denne kommunikation består af data fra overvågning af systemet.
+
+\subsection{Specifikke krav}
+
+\subsection{Eksterne grænseflader}
+\label{sec:graenseflader}
+
+\subsection{Krav til ydelse}
+\label{sec:ydelse}
+
+\subsection{Kvalitets krav}
+
+\subsection{Design krav}
+\label{sec:design}
+
+\subsection{Andre krav}
+\label{sec:andre}
+
+
+
+\end{document}

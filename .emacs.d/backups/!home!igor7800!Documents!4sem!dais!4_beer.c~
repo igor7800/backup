@@ -1,0 +1,63 @@
+#include <stdio.h>  /* For at supportere scanf osv. */
+#include <stdlib.h> /* For at supportere malloc */
+
+typedef struct  {
+  char type[81]; /* Hvilken slags oel er det */
+  float price;   /* Pris i kroner */
+  float alc;     /* Procenter */
+  float ml;      /* Maengde i milliliter [ml] */
+  Beer *next;
+}Beer;
+
+int menu() {
+  int nSelection;
+  printf("Muligheder:\n");
+  printf("1) Tilfoej ny oel\n");
+  printf("2) Se alle oel\n");
+  printf("3) Stop program\n");
+  scanf("%d",&nSelection);
+  return nSelection;
+}
+
+Beer *add_beer(Beer *beer,int *number_of_beers) {
+  Beer *new_beer;
+  new_beer=(Beer *)malloc(sizeof(Beer)); /* Alloker plads til nyt element/node */
+  new_beer->next=beer; /* Indsaet nyt element/node */
+
+  printf("Type: ");
+  scanf("%s",new_beer->type);
+  printf("Pris: ");
+  scanf("%f",&new_beer->price);
+  printf("Procenter: ");
+  scanf("%f",&new_beer->alc);
+  printf("Milliliter: ");
+  scanf("%f",&new_beer->ml);
+
+  *number_of_beers=*number_of_beers+1;
+  return new_beer;
+}
+
+void see_beers(struct Beer *beer,int number_of_beers) {
+  Beer *tmp;
+  int i;
+  for (i=0; i<number_of_beers; i++) {
+    tmp=beer->next;
+    printf("Type: %s\n",beer->type);
+    printf("Pris: %f\n",beer->price);
+    printf("Procenter: %f\n",beer->alc);
+    printf("Milliliter: %f\n",beer->ml);
+    beer=tmp;
+  }
+}
+
+int main() {
+  Beer *beer;
+  int nSelection=0,nNumberOfBeers=0;
+  beer=NULL;
+  while (nSelection!=3) {
+    nSelection=menu();
+    if (nSelection==1) beer=add_beer(beer,&nNumberOfBeers);
+    else if (nSelection==2) see_beers(beer,nNumberOfBeers);
+  }
+  return 0;
+}}

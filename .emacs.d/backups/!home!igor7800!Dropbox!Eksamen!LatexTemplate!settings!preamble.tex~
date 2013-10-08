@@ -1,0 +1,123 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[openany,11pt]{scrartcl}
+
+%Language settings 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage[danish]{babel}
+
+%Packages
+\usepackage[table]{xcolor}
+\usepackage{icomma,amsmath,amsfonts,amssymb,graphicx,gensymb,url,commath}
+\usepackage{tikz,listings,hyperref,aurical,calc,subfig,pdfpages,longtable,textcomp,pdflscape}
+\usepackage{lastpage,xspace}
+\usepackage[section]{placeins}
+\usepackage[per-mode = symbol]{siunitx}
+\usepackage[footnote,draft,danish,silent,nomargin]{fixme}
+\usepackage[nointegrals]{wasysym}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\usepackage{lipsum}
+
+%Document settings
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt} 
+\setlength{\headheight}{13.6pt} 
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\setlength\parindent{0pt}
+
+% Pakkeopsætning
+\usetikzlibrary{shapes}
+% \pgfplotsset{compat=newest}
+\lstset{
+  breaklines=true, 
+  language=VHDL,
+  basicstyle=\scriptsize\ttfamily, 
+  frame=single,
+  % columns=flexible, 
+  numbers=left, 
+  numberstyle=\tiny\sffamily, 
+  literate={ø}{{\o}}1 {æ}{{\ae}}1{å}{{\aa}}1,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  captionpos=b,
+  keywordstyle=\color{blue!70!black},
+  commentstyle=\color{gray}
+}
+\lstdefinelanguage{picoblaze}{
+  sensitive=false,
+  morekeywords=[1]{
+    add, addcy, adddc, addcy, and, call, compare, comp,
+    dint, eint, fetch, input, jump, load, or, output,
+    return, returni, rl, rr, sl0, sl1, sla, slx, sr0, sr1,
+  sra, srx, store, sub, subcy, test, xor},
+  morecomment=[l]{;},
+  morestring=[b]",
+  morestring=[b]',
+}
+\lstdefinelanguage{constraintfile}{
+  morekeywords={NET, LOC},
+  sensitive=false,
+  morecomment=[l]\#,
+  morestring=[b]",
+}
+\lstdefinelanguage{diff}{
+  morecomment=[f][\color{blue!70!black}]{<},
+  morecomment=[f][\color{red!70!black}]{>},
+}
+\hypersetup{%
+  pdfpagelabels=true,%
+  plainpages=false,%
+  pdfauthor={Author(s)},%
+  pdftitle={Title},%
+  pdfsubject={Subject},%
+  bookmarksnumbered=true,%
+  colorlinks,%
+  citecolor=black,%
+  filecolor=black,%
+  linkcolor=black,%
+  urlcolor=black,%
+  pdfstartview=FitH%
+}
+\usepackage{memhfixc}
+\urlstyle{sf}
+\sisetup{output-decimal-marker = {,}, output-exponent-marker=\ensuremath{\mathrm{E}}, output-complex-root=j}
+\DeclareSIUnit[number-unit-product = \,]{\permil}{\textperthousand}
+
+% Skrifttype/font
+%\usepackage{cmbright}
+%\usepackage[scaled=0.85]{DejaVuSansMono}
+
+% Itemize -- fyld mindre
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone\firmlist}{\temptwo}
+
+% Enumerate -- fyld mindre
+\let\tempthree\enumerate
+\let\tempfour\endenumerate
+\renewenvironment{enumerate}{\tempthree\firmlist}{\tempfour}
+
+% Figurer -- placer bedre
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.85}
+
+% Paragrafopsætning
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}

@@ -1,0 +1,25 @@
+#include <iostream.h>
+using namespace std;
+class nigga
+{
+ private:
+  int x,y; 
+ public:
+  nigga(){
+    cout << "I am a nigga, NIGGAH" << endl;
+
+
+  };
+  virtual ~nigga();
+};
+
+int int main(int argc, char *argv[])
+{
+
+  nigga denhart;
+  denhart.x=1;
+      denhart.y=2;
+      denhart.nigga;  
+  return 0;
+}
+

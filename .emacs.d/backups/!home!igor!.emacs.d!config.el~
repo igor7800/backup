@@ -1,0 +1,22 @@
+(add-to-list 'load-path "~/.emacs.d/vendor")
+(setq custom-file "~/.emacs.d/configs/custom.el")
+(load custom-file 'noerror)
+(prefer-coding-system 'utf-8)
+
+
+;Load conf files
+(load "configs/global")
+(load "configs/theme")
+(load "configs/latex")
+(load "configs/auto-pair")
+(load "configs/c-mode")
+(load "configs/flyspell")
+(load "configs/markMultiple")
+(load "configs/yasnippet-1")
+(load "configs/arduinoMode")
+(load "configs/auto-complete")
+(load "configs/org-mode")
+
+
+
+

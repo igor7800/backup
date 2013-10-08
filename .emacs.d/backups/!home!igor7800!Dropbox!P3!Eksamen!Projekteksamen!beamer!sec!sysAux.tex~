@@ -1,0 +1,86 @@
+\subsection{AUX-forforstærker}
+\begin{frame}
+  \frametitle{AUX-forforstærker}
+  \begin{block}{Krav til forforstærkeren}
+    \begin{itemize}
+      \item Indgangsamplitude: \SI{500}{mV_{RMS}} med overstyring på $\pm\SI{12}{dB}$.
+      \item Udgangsamplitude skal være højst \SI{500}{mV_{RMS}}.  
+      \item Frekvensbånd: \SI{20}{Hz}--\SI{20000}{Hz}, inden for tolerancen på $\pm\SI{1,5}{dB}$ relateret til \SI{1000}{Hz} 
+      \item Indgangsimpedans: $\SI{22}{k\ohm}\parallel \SI{250}{p\F}$.
+      \item Udgangsimpedans skal være mere end 5 gange mindre end det efterfølgende trins ingangsimpedans. 
+      \item Total harmonisk forvrængning: $<\SI{0,5}{\%}$. 
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{AUX-forforstærker}
+  \begin{block}{DC-design}
+    \begin{minipage}[t]{0.6\linewidth}
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{img/aux_generelt}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.4\linewidth}
+      \begin{itemize}
+        \item Valg af kobling, fordele og ulemper
+        \item Spændningsdeler
+      \end{itemize}
+    \end{minipage}\hfill
+  \end{block}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{AUX-forforstærker}
+  \begin{block}{Lavfrekvens-design}
+    \begin{center}
+      \includegraphics[width=0.33\linewidth]{img/aux_lf-design}\hfill
+      \includegraphics[width=0.33\linewidth]{img/aux_frekvensrespons-1}\hfill
+      \includegraphics[width=0.33\linewidth]{img/aux_frekvensrespons-2}
+    \end{center}
+    \begin{itemize}
+      \item Forhold mellem kondensatorene
+      \item Konstanter og andengradsligning
+    \end{itemize}
+  \end{block}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{AUX-forforstærker}
+  \begin{block}{Højfrekvens-design}
+    \begin{center}
+      \includegraphics[width=0.33\linewidth]{img/aux_hf-design}\hfill
+      \includegraphics[width=0.33\linewidth]{img/unikobling-frekvens}\hfill
+      \includegraphics[width=0.33\linewidth]{img/aux_frekvensrespons-1}
+    \end{center}
+    \begin{itemize}
+      \item Kortslutningstidskonstantmetode
+      \item Begrænsning af båndbredte
+    \end{itemize}
+  \end{block}
+\end{frame}
+%
+%
+\begin{frame}
+  \frametitle{AUX-forforstærker}
+  \begin{block}{Impedanser}
+    \begin{minipage}[t]{0.48\linewidth}
+      \vspace{0pt}
+      \includegraphics[width=\linewidth]{img/aux_indgangsimpedans}
+      \vspace{2mm}
+      \includegraphics[width=\linewidth]{img/aux_udgangsimpedans}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.48\linewidth}
+      \begin{itemize}
+        \item Udgangsimpedans
+        \item Indgangsimpedans
+        \item Indgangsimpedans for RIAA indgang
+      \end{itemize}
+    \end{minipage}\hfill
+  \end{block}
+\end{frame}
+
+
+

@@ -1,0 +1,296 @@
+ \chapter{Design af indlejet software}
+
+\section{Opgave 1}
+\paragraph{a)} 
+
+Der skrives alle tal , men ikke 777
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+
+int main(void)
+  { 
+  int i;
+  for (i = 1; i <= 1000; ++i)
+  {
+    if (i==777) { }
+    else printf("%d\n",i);
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{b)}
+\begin{itemize}
+  \item -1  første kompliment 11111110 eller signed magnitude 10000001 
+  \item -3  første kompliment 11111100 eller signed magnitude 10000011
+  \item -27 første kompliment 11100100 eller signed magnitude 10011011
+  \item 101  i binært er 01100101
+  \end{itemize}
+
+\paragraph{c)}
+Den mindste værdi på 8 bit arkitektur i signed format er $-0$ eller 10000000.
+Den største værdi på 8 bit arkitektur i signed format er 127, eller 11111111, hvor den første bit bestemmer fortegnet.
+
+\paragraph{d)}
+\begin{align*}
+   &01100101\\
+  +&01100001\\
+  =&11000110
+\end{align*}
+
+\paragraph{e)}
+\begin{enumerate}
+\item 7 9 13 5 2 9 4 7 6 9
+\item 7 9 13 5 2 9 4 7 6 9 , algoritme tjekker sidste to tal og bytter dem hvis de stå i forkert rakkefølge
+\item 7 9 13 5 2 9 4 6 7 9 , algoritme tjekker to forrie tal og  og bytter dem hvis de stå i forkert rakkefølge
+\item 7 9 13 5 2 9 4 6 7 9
+\item 7 9 13 5 2 4 9 6 7 9
+\item 7 9 13 5 2 4 9 6 7 9
+\item 7 9 13 2 5 4 9 6 7 9
+\item 7 9 2 13 5 4 9 6 7 9
+\item 7 9 2 13 5 4 6 9 7 9
+\item 7 9 2 13 4 5 6 9 7 9
+\item 7 9 2 4 13 5 6 9 7 9
+\item 7 2 9 5 13 5 6 9 7 9 , efter de to første tal blev tjekket skal algoritmen begynde forfra og sådan forsatter den ind til alle tallerne  er sorteret.
+\item ...
+\item 2 5 5 6 7  7 9 9 9 13
+\end{enumerate}
+
+\paragraph{f)}
+funktionen add7 laves om sådan at den retunere int i stedet for at retunere ingen ting. Før funktionen kunne ikke operere på variabel ``a'' fordi den opereret med lokal variabel ``x''.
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+
+int add7 (int x)
+{
+  return x=x+7;
+}
+
+int main (void)
+{
+  int a=6;
+  printf ("%d\n", add7(a));
+  return 0;
+}
+\end{lstlisting}
+
+
+ \paragraph{g)}
+ Et element er en struct, som skal indeholde en pointer til det næste element. Dette struct kan også indeholde hvilken som helst data.
+ En eksampel på en element kan ses på listing nedunder.
+\begin{lstlisting}[language=C,numbers=none]
+ struct person
+ {
+   int alder;
+   char forNavn[15];
+   char efterNavn[15];
+   struct person *next;
+ }
+ struct person jens;
+\end{lstlisting}
+
+\paragraph{h)}
+Man skal løbe hele liste igennem, før der kan tilføget en ny element. Fordele ved det at der skal kun ændres i en pointer, som gør det nemt. 
+
+\section{Opgave 2}
+
+\paragraph{a)}
+Koden blev komenteret på listing nedunder:
+
+\begin{lstlisting}[language=picoblaze,numbers=none]
+secret_funktion:	
+	load s0 $00 		;Der ligges 0x00 ind i register s0
+	load s1 $00		;Der ligges 0x00 ind i register s1
+	load s2 $10		;Der ligges 0x10 ind i register s2
+	load s3 $20		;Der ligges 0x20 ind i register s3
+j1:
+	fetch s4, s2		;Indholdet af s2 ligges i register s4
+	add   s0, s4		;Register s0 adderes med register s4 og resultatet blev lagt i s0
+	addcy s1, 00		;Addere s1 register med carry og 00
+	add   s2, 01		;Addere s2 register med 01
+	sub   s3, 01		;trækker 01 fra s3 register
+        jump  nz, j1		;hvis det sidste resultat er ikke lige med 0 og zero flag er ikke sat, blev der hoppet til j1 
+	return
+\end{lstlisting}
+
+
+\paragraph{b)}
+Hver instruktion på picoblaze tager 2 clock cykler, derfor hele programmet tager 394 clock cykler.
+
+\paragraph{c)}
+Der laves en loop, der kører 5 gange, så 16 bit tal blev rykket 5 gange til højre, som svare til dividere med 32.	
+\begin{lstlisting}[language=picoblaze,numbers=none]
+        load s6 $05
+divideBy32:
+	sr0  s0 
+	sra  s1
+	sub  s6 01
+	jump nz, divideBy32
+	
+\end{lstlisting}
+	
+\section{Opgave 3}
+\paragraph{a)}
+I sekventiel programmering blev kode eksekveret sekventielt, men ved hjælp af multiprogramming kan man køre flere threads "parallelt", dette betyder at hver af dem får lidt tid til at køre. Når dette sker hurtigt nok, sker der en illusion at disse kører parallelt. 
+
+\begin{lstlisting}[language=C,numbers=none]
+#include <pthread.h>
+#include <stdio.h>
+pthread_t tid;   //variable for CPR number
+
+void* thread1(void* a1) //thread 1
+{
+  for(;;) printf ("Hej from thread1\n");
+}
+
+void* thread2(void* a1) //thread 2
+{
+  for(;;) printf ("Hej from thread2\n");
+}
+
+int main (int argc, char *argv[]){
+  printf ("Hej start\n");
+  for (;;){
+  pthread_create(&tid,NULL,thread1,NULL);
+  pthread_create(&tid,NULL,thread2,NULL);
+  printf ("\n");
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{b)}
+\begin{itemize}
+\item Der kan laves en mutex struktur ved hjælp af semaforer. Mutex sørge for at der kun en thread kan lave andringer på variabel.  
+\item Det er muligt at disable interrupt mens der blev lavet kritiske manipulationer på variablen. Det betyder at andre processer kan ikke får lov til at køre og andre på variablen.
+\item Det er smart at bruge interrupt, når der skal for eksampel læses fra en sensor.       
+\end{itemize}
+
+\paragraph{c)}
+Ja de kører begge 5 gange i sekundet, og hver task får lige så meget CPU tid, hvis der blev brugt Round-robin. Hvis der blev brugt frivillig(nonpreemptive) programmet kommer til at sidde fast i while loop i den første task, som den kommer til køre.
+
+\paragraph{d)}
+Hvis der blev brugt round robin følges taskene godt i tid, og disse to stykker kode tager det lige så lang tid at execute.
+
+Hvis der blev brugt frivillig skedulering kommer en af taskene til at køre væk fra den anden, og den anden får aldrig lov til at køre. 
+
+\paragraph{e)}
+
+\begin{lstlisting}[language=C,numbers=none]
+#include <stdio.h>
+#include <semaphore.h>
+#include <pthread.h>
+sem_t semID;
+pthread_t tid;   //variable for CPR number
+char character;
+
+void* thread1(void* a1) //thread 1
+{
+int character;
+isr_wait(semID);  // venter på semafor, hvilket betyder at semafor er nu lige med "0", så hvis der kommer en næste task, bliver den nydt til at vente.
+scanf("%c",character); //scanner en karakter fra tastatur
+isr_signal(semID); // frigiver semafor, som blev nu sættet til "1"
+}
+
+void* thread2(void* a1) //thread 2
+{
+isr_wait(semID);  // venter på semafor, hvilket betyder at semafor er nu lige med "0", så hvis der kommer en næste task, bliver den nydt til at vente.
+ processChar(character);
+isr_signal(semID); // frigiver semafor, som blev nu sættet til "1"
+}
+
+int main (int argc, char *argv[]){
+  printf ("Hej start\n");
+  for (;;){
+    sem_init(&semID,0,1);  
+    pthread_create(&tid,NULL,thread1,NULL);
+    pthread_create(&tid,NULL,thread2,NULL);
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\paragraph{f)}
+
+\begin{lstlisting}[language=C,numbers=none]
+sem_t semID;
+
+timerInterrupt(time,isr_signal(semID));
+void* thread1(void* a1)
+{
+  isr_wait(semID);
+  //stuff
+  isr_signal(semID);
+
+}
+
+\end{lstlisting}
+
+
+
+\section{Opgave 4}
+\begin{itemize}
+\item $\tau_1 : (T_1=10, c_1=3, d_1=6)$
+\item $\tau_2 : (T_2=8,  c_2=2, d_2=8)$
+\item $\tau_3 : (T_3=6,  c_3=2, d_3=10)$
+\end{itemize}
+\paragraph{a)}
+\begin{itemize}
+\item $U=\sum\limits_{i=1}^N \frac{c_i}{T_i} = \frac{c_1}{T_1}+\frac{c_2}{T_2}+\frac{c_3}{T_3} = \frac{3}{10}+\frac{2}{8}+\frac{2}{6}= 883.33E-3$
+\item Ja de kan afvikles stabilt, fordi $U<1$
+\item På Figur~\ref{fig:tasks1} kan ses at task nummer 3 kan afvikles i tid.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{tasks1}
+  \caption{afvikling af tasks under round-robin}
+  \label{fig:tasks1}
+\end{figure}
+
+\item Task nummer 3 kan også blive færdig før deadlinen også i det næste job, dette kan ses på en Figur~\ref{fig:tasks2}.
+  \begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{tasks2}
+  \caption{afvikling af tasks under round-robin}
+  \label{fig:tasks2}
+\end{figure}
+\end{itemize}
+
+\paragraph{b)}
+\begin{itemize}
+\item Under RMA prioriteten blevet givet til tasks med lavest preiodetid, det betyder at jo mindre er periodetid, jo højre er prioritet.
+\item Under DMA prioriteten blevet givet til tasks med lavest deadline,det betyder at jo mindre er deadline, jo højre er prioritet.
+\item Der blev undersøgt om task nummer to kan kan afvikle jobs indenfor deadline.
+  $C_j=c_i+\sum\limits_{j=1}^{j-1} \lceil\frac{t}{T_j}\rceil \cdot c_j   $ 
+I dette tilfælde $T_1=10,c_1=3,c_2=2$
+
+$C_2=2+3\cdot\lceil \frac{0.1}{10}=5$
+På Figur~\ref{fig:dma} kan ses at $C_2$ er lige med 5, som betyder at $c2=5<d2=8$, som betyder at task nummer to kan afvikle jobs indenfor deadline ved DMA.
+
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{dma}
+  \caption{Deadline monotonic assignment}
+  \label{fig:dma}
+\end{figure}
+\end{itemize}
+
+
+\paragraph{c)}
+På en Figur~\ref{fig:edf} kan ses at deadlinene overholdes unde EDF.
+
+\begin{figure}[htbp]
+  \includegraphics[scale=0.5]{edf}
+  \caption{Tasksettet afvikling under EDF}
+  \label{fig:edf}
+\end{figure}
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../master"
+%%% End: 
+
+

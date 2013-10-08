@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{multirow}
+\begin{document}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{| l || l | l | p{5cm} |}
+    \hline
+    Days                      & Monday       & Wednesday         & Friday      \\ \hline  \hline   
+   
+    \multirow{7}{*}{Week 1} 
+    & Bench: 5x5 130          & Squat 5x5 145        & Bench: 100x8;110x5;120x4;130x3; 140x2;130x3;120x4;110x5 \\ 
+    & Close grip bench 5x10    & Deadlift 5x8 150     & Dumbbell bench press 5x10  \\
+    & Lats                    & Goodmornings         & Lats \\ 
+    & Facepulls               &Hamstrings            & Facepulls \\ 
+    & Triceps                 & Quads                & Triceps \\ 
+    & Shoulder mobility       & Lower back           & Shoulder mobility \\ 
+    & Abs                     & Abs                  & Abs \\ \hline
+
+
+    \multirow{7}{*}{Week2}
+    & Bench: 5x4 135          &Squat 5x8 130         &Bench 100x8;110x5;120x4;130x4; 140x3;130x4;120x5;110x5  \\  
+    & Close grip bench 5x10    & Deadlift 5x8 160     & Dumbbell bench press 5x10  \\
+    & Lats                    & Goodmornings         & Lats \\ 
+    & Facepulls               &Hamstrings            & Facepulls \\ 
+    & Triceps                 & Quads                & Triceps \\ 
+    & Shoulder mobility       & Lower back           & Shoulder mobility \\ 
+    & Abs                     & Abs                  & Abs \\ \hline
+
+
+    \multirow{7}{*}{Week3} 
+    & Bench: 5x3 140          &Squat 5x8 130         &Bench 100x8;110x5;120x4;130x4; 140x4;130x3;120x4;110x5  \\  
+    & Close grip bench 5x10   & Deadlift 5x8 160     & Dumbbell bench press 5x10  \\
+    & Lats                    & Goodmornings         & Lats \\ 
+    & Facepulls               &Hamstrings            & Facepulls \\ 
+    & Triceps                 & Quads                & Triceps \\ 
+    & Shoulder mobility       & Lower back           & Shoulder mobility \\ 
+    & Abs                     & Abs                  & Abs \\ \hline
+
+    \multirow{7}{*}{Week4}
+    & Bench: 5x2 145          &Squat 5x8 130         &Bench 100x8;110x5;120x4;130x4; 140x3;130x5;120x5;110x5  \\  
+    & Close grip bench 5x10   & Deadlift 5x8 160     & Dumbbell bench press 5x10  \\
+    & Lats                    & Goodmornings         & Lats \\ 
+    & Facepulls               &Hamstrings            & Facepulls \\ 
+    & Triceps                 & Quads                & Triceps \\ 
+    & Shoulder mobility       & Lower back           & Shoulder mobility \\ 
+    & Abs                     & Abs                  & Abs \\ \hline
+
+
+    \multirow{7}{*}{Week5} 
+    & Bench: max bench        &Squat 5x8 130         &Bench 100x8;110x5;120x4;130x3; 140x1;130x3;120x4;110x5  \\  
+    & Close grip bench 5x10   & Deadlift 5x8 160     & Dumbbell bench press 5x10  \\
+    & Lats                    & Goodmornings         & Lats \\ 
+    & Facepulls               &Hamstrings            & Facepulls \\ 
+    & Triceps                 & Quads                & Triceps \\ 
+    & Shoulder mobility       & Lower back           & Shoulder mobility \\ 
+    & Abs                     & Abs                  & Abs \\ \hline
+  \end{tabular}
+\end{table}
+
+\end{document}

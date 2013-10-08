@@ -1,0 +1,12 @@
+;; For MATLAB-files
+(autoload 'matlab-mode "/usr/local/emacs/matlab.el-2.2.2" "Enter Matlab mode." t)
+(setq auto-mode-alist (cons '("\\.m$" . matlab-mode) auto-mode-alist))
+(defun my-matlab-mode-hook ()
+  (setq matlab-indent-function nil); if you want function bodies indented
+  (setq fill-column 76) ; where auto-fill should wrap
+  (turn-on-auto-fill))
+(setq matlab-mode-hook 'my-matlab-mode-hook)
+(autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
+(defun my-matlab-shell-mode-hook ()
+  '())
+(setq matlab-mode-hook 'my-matlab-mode-hook)

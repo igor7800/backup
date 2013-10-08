@@ -1,0 +1,3 @@
+;arduino mode
+;(add-to-list 'load-path "~/.emacs.d/vendor/arduino.el ")
+;(require 'arduino-mode)

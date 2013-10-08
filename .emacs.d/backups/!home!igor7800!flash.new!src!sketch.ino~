@@ -1,0 +1,96 @@
+/*
+ *   S25FL128S flash driver for Arduino Uno Bord.  
+ *
+ *   @autors Malthe Bilgram, Igor Syrytsin, Søren Nørgaard
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#include "S25FL128S.h"
+#include "SPI.h"
+
+const unsigned char FCS = 7;       // chip select pin
+
+void setup(void)
+{
+    Serial.begin(9600);                         // initialize serial communication at 9600 bits per second
+    SPI.begin();                                // initialize SPI:
+    SPI.setBitOrder(MSBFIRST);                  // Sends all words in MSB to LSB order
+    SPI.setClockDivider(SPI_CLOCK_DIV2);        // sets SPI clock to 4MHz
+    pinMode(FCS, OUTPUT);                       // chip select pin - enable as output
+    FlReset(FCS);                               // reset flash
+}
+
+unsigned char run = 1;
+void loop ()
+{
+  if(run){                                       // Needed to run loop only one time
+    run = 0; 
+    /**
+     *Test 1 code
+     */
+    unsigned char i;
+    unsigned long adr=0x00050000;
+    unsigned char dataRead[16],dataWrite[16],datalen=16;
+    dataWrite[0] = 0;
+    dataWrite[1] = 1;
+    dataWrite[2] = 2;
+    dataWrite[3] = 3;
+    dataWrite[4] = 4;
+    dataWrite[5] = 5;
+    dataWrite[6] = 6;
+    dataWrite[7] = 7;
+    dataWrite[8] = 8;
+    dataWrite[9] = 3;
+    dataWrite[10] = 10;
+    dataWrite[11] = 11;
+    dataWrite[12] = 12;
+    dataWrite[13] = 13;
+    dataWrite[14] = 14;
+    dataWrite[15] = 15;
+    FlWriteReg(FCS);// Checking status register
+    delay(1);
+    FlEraseAll(FCS);                                        // Erases data at the address adr 
+    delay(1);  //<------- vigtig høns, aner ik hvorfor det skal være her , men slet ikk, eller dør i i helvede
+    FlReadEx(FCS,adr,dataRead,datalen);                      // read page of data at adress adr   
+     Serial.println("deleted page ");
+    for(i=0;i<datalen;i++){
+    Serial.println(dataRead[i]);         //print page to serial port
+    }
+     FlProgramEx(FCS,adr,dataWrite,datalen);                  // Program a page of data (unsigned char dataWrite[256])
+     FlReadEx(FCS,adr,dataRead,datalen);      // read page of data at adress adr
+    Serial.println("writed page ");                  
+    for(i=0;i<datalen;i++) {
+    Serial.println(dataRead[i]);         //print page to serial port       
+    }
+  }
+}
+
+    
+    /**
+     *Test 0 code
+     */
+    
+//    unsigned char data = 56;              // data byte  
+//    unsigned long i;                         
+//    FlWriteReg(FCS);                        // Checking write register 
+//    FlErase(FCS,0);                         // Erases data at the address "i" 
+//     for( i = 0; i<=255;i++){               // Initializing for loop, running through 1000 adresses 
+//       Serial.print("deleted byte ");       // Showing the new data byte at the address 
+//       Serial.println(FlRead(FCS,i)); 
+//       FlProgram(FCS,i,data);               // Program new data after deletion of the old data 
+//       Serial.print("writed byte ");        // Showing the new data byte at the address 
+//       Serial.println(FlRead(FCS,i));                    
+//     } 
+//   }  
+//}

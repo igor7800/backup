@@ -1,0 +1,18 @@
+%Title
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+\title{	
+\normalfont \normalsize 
+\textsc{Aalborg Universitet -- Elektronik \& IT} \\ [25pt]
+\horrule{0.5pt} \\[0.4cm]
+\huge Design af indlejret software -- Eksamen \\ 
+\horrule{2pt} \\[0.5cm]
+}
+
+\author{Navn:  -- Studienummer: }
+
+\date{\normalsize\today} % Today's date or a custom date
+
+
+
+\maketitle % Print the title

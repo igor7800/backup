@@ -1,0 +1,102 @@
+\subsection{Højfrekvens-design}
+\label{sec:aux-hf-design}
+
+Når der snakkes om højfrekvens-design, betyder det at den maksimale frekvens som transistorkoblinger kan arbejde i (den højeste knækfrekvens), skal findes. Iflg. krav~\ref{req:preamp-frekvens} skal den højeste knækfrekvens være på \SI{20}{kHz}. 
+
+Der opstilles en ny småsignalsmodel, hvor der optræder to kondensatorer $C_{\mu}$ og $C_{\pi}$ og en modstand $R_{x}$. Disse kondensatorer optræder, da der arbejdes i højefrekvenser. Forstærkningen kan findes som $A_{V}= {\frac{g_m\cdot R_{E}}{1+ g_m\cdot R_{E}}}\approx 0,99$. Modstanden $R_{x}$ kan findes som $R_{x}=h_{oe}-r_{\pi}$. Modstanden $r_{\pi}$ kan findes til  $r_{\pi }= {\frac{h_{fe}}{I_{C}/V_{T}}}= \SI{8,58}{k\ohm}$. Det ses at modstanden $R_{x}$ bliver negativ, fordi $h_{oe}-r_{\pi}=\SI{-0,05}{\ohm}$. På grund af dette, kan denne udregning ikke bruges til at bestemme $R_x$. Den sættes derfor til \SI{100}{\ohm}. Kondensatoren $C_{\mu}$ er aflæst fra databladet til \SI{3,5}{pF} og den maksimale frekvens, som transistoren kan arbejde i, er $f_{T}=\SI{300}{MHz}$. Transistormodellen for en højfrekvens kan ses på Figur~\ref{fig:hf-model}.
+Modstanden $R_{E}^{\prime}$ er bestående af følgende modstande $R_{E}^{\prime}= R_{E}\parallel R_{L}$
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{aux_hf-design}
+  \caption{Højfrekvensmodel for en common-collector transistorkobling}
+  \label{fig:hf-model}
+\end{figure}
+
+
+Kondensatoren $C_{\pi}$ kan transformeres til to tilsvarende millerækvivalenter. Disse to kondensatorer kan findes som $ C_{\pi }^{\prime \prime }= C_{\pi }\cdot ({1- 1/ 0.99})$ og  $C_{\pi }^{\prime }= C_{\pi }\cdot 0.01\ll C_{\mu }$.
+Det næste skridt er at beregne tidskonstanter for indgang og udgang, som afhænger af de to kondensatorer der er brugt i designet. De to tidskonstanter kan bruges i formlen for vinkelhastighed: 
+\begin{equation}
+  \label{eq:hastighed}
+  \omega_{h}= \frac{1}{\tau_{i}+\tau_{o}}
+\end{equation}
+
+Tidskonstanten for indgangen kan findes som:
+\begin{align*}
+  % \label{eq:tau-in}\\
+  \tau _{i} &= C_{i}\cdot R_{i}\\
+  &= ({C_{\mu }+ C_{\pi } ^{\prime }}) \cdot R_{i} \\
+  &= ({C_{\mu }+ C_{\pi }\cdot ({1- A_{v}})}) \cdot ((R_{G}+R_{S1}) \parallel (R_{S2} \parallel (R_{B} + R_{x}))) \parallel (r_{\pi} + R_{E} ^{\prime} \cdot (1+h_{fe}))\\
+  &= C_{\mu} \cdot \SI{7,06}{k\ohm}
+\end{align*}
+
+Tidskonstanten for udgangen kan findes som:
+\begin{align*}
+  \tau _{o}&= C_{\pi} ^{\prime \prime} \cdot R_{o}\\
+  &= C_{\pi} ^{\prime \prime} \cdot R_{E} ^{\prime} \parallel \frac{r_{\pi} + R_{x} + R_{B} \parallel R_{S2} \parallel (R_{G}+R_{S1})}{1+h_{fe}}\\
+  &= C_{\pi} ^{\prime \prime} \cdot \SI{46,51}{\ohm}
+\end{align*}
+
+Kondensatoren $C_{\pi}$ kan findes ud fra værdierne for $C_{\mu}$ og $f_{T}$, som er aflæst i databladet.
+\begin{align*}
+  % \label{eq:C_pi}
+  C_{\pi}&= \frac{g_m}{2 \cdot \pi}-C_{\mu}\\
+  &= \SI{16,9}{pF} 
+\end{align*}
+
+Derefter kan de tilsvarende miller-transformerende ækvivalenter findes:
+\begin{align*}
+  % \label{eq:miller-pi}
+  C_{\pi}^{\prime \prime}&=\SI{-0,17}{pF}\\
+  C_{\pi}^{\prime}&= \SI{0,17}{pF}
+\end{align*}
+
+Kondensatoren $C_{\mu}^{\prime}$ for emitterfølgeren er den samme som $C_{\mu}$:
+\begin{align*}
+  % \label{eq:miller-mu}
+   C_{\mu} ^{\prime}= C_{\mu}= \SI{3.5}{pF} 
+\end{align*}
+
+Vinkelhastigheden kan findes udfra formlen \ref{eq:hastighed}.
+\begin{align*}
+  % \label{eq:vinkelhastighed}
+  \omega_{h}&=\frac{1}{(\num{3,5E-12} \cdot \num{7,06E3})+(\num{-0,17E-12} \cdot 46,51)}\\
+  &=\SI{40,48}{\radian\per\second} 
+\end{align*}
+
+Vinkelhastigheden kan derefter omregnes til frekvens:
+\begin{align}
+  \label{eq:frekvens}
+  f_{H}=\frac{\omega_{h}}{2 \cdot \pi} = \SI{6,44}{MHz} 
+\end{align}
+
+Udfra Ligning~\ref{eq:frekvens}, kan det ses, at systemet højest kan arbejde i \SI{6,44}{MHz} området, hvilket også er meget normalt for en emitterfølger.
+Iflg. kravspecifikationen skal indgangsimpedansen være $\SI{22}{k\ohm} \parallel \SI{250}{pF}$. Dette krav kan opnås ved at sætte en kondensator på \SI{250}{pF} parallelt med indgangen. Denne designændring påvirker systemet på en sådan måde, at der forekommer en pol ved frekvensen, som kan beregnes ud fra formlen \ref{eq:kondensator-indgang}. Udgangsimpedansen på line-outputtet er kendt fra standarden som \SI{2,2}{k\ohm} 
+\begin{align}
+  \label{eq:kondensator-indgang}
+  f_{H}&=\frac{1}{2 \cdot \pi \cdot \num{2,2E3} \cdot \num{250E-12}}\\
+  &=\SI{289,37}{kHz} 
+\end{align}
+%
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{aux_hf-bode}
+  \caption{Højfrekvens-design}
+  \label{fig:HF-bodeplot}
+\end{figure}
+%
+Det kan ses at der forekommer en pol på knækfrekvenskurven ved \SI{289,37}{kHz}. Dette er dog ikke nok for designet i dette system, fordi der ønskes en båndbredde op til \SI{20}{kHz}. Som en mulighed kan der indsættes en kondensator efter en spændingsdeler, som giver en pol i \SI{20}{kHz}.
+Denne kondensator kan udregnes via følgende ligning:
+\begin{align*}
+  % \label{eq:20kHz_kondensator}
+  f_{H}&=\frac{1}{2 \cdot \pi \cdot R_{S1} \parallel R_{S2}}\\
+  C &= \SI{1,12}{nF} 
+\end{align*}
+På bodeplottet \ref{fig:HF-bodeplot} ses hvordan systemet teoretisk skal opføre sig i høje frekvenser.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../../../master"
+%%% End: 
+
+

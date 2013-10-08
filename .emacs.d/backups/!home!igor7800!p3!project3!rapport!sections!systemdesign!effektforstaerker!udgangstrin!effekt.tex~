@@ -1,0 +1,56 @@
+\subsection { udregning af effekt og bestemmelse af køleplade   }
+Der er blevet vælgt to strømforsyninger: en på $\pm \SI{ 18 }{V} $ og en på $\pm \SI{6 }{V} $ .  Det betyder at maks afsæt effekt kan udregnes ved ar bruge formlen for maksimal afsæt effekt:  
+\begin{gather*}
+P_{L} = \frac{V_{o.peak}^{2}}{2 \cdot R_{L}} \\
+P_{L} = \frac{18^{2}}{2 \cdot 8} \\
+P_{L} = \SI{20,25}{W}
+\end{gather*}
+
+Hvor $V_{o.peak} $ er det maksimale  peak spænding , som signalet kan komme op til , og $R_{L}  $ er modstanden inde i højtaller.
+Det er også muligt at finde det maksimale effekt som strømforsyning kan levere hvis $V_{cc}  $ er det samme som $V_{o.peak}$.
+
+\begin{gather*}
+P_{sup} = \frac{2 \cdot V_{o.peak} \cdot  V_{cc} }{\pi \cdot R_{L} } \\
+P_{sup} = \frac {2 \cdot V_{cc} }{\pi \cdot R_{L}} \\
+P_{sup} = \frac {2 \cdot 18 \cdot 18 }{\pi \cdot 8} \\
+P_{sup} = \SI{25,78}{W}
+\end{gather*}
+
+Den effekt , som blev brændt i en transistor kan findes ved at finde effekt , som blevet brændt i begge transistor og dividere med to. I dette tilfælde klasse G forstærker blevet betragtet som to klasse B udgangstrin, hvor en af dem køre på en høj forsyning og den anden køre på den lav.  Derfor effektet som blevet brændt i de øvtreste to transistorer blevet delt mellem dem. Effekten kan findes ved: 
+
+\begin{gather*}
+P_{Q} = \frac{V_{cc}^{2}}{\pi^{2} \cdot R_{L}} \\
+P_{Q} = \SI{4,104} {W}
+\end{gather*}
+
+Det betyder at der blevet forbrændt $\SI{4,104}{W} $ i to øvreste transistorer. Den effekt deler de sammen, defor blevet der bestemt at de to transistorer skal monteres på en køleplade. 
+
+Når transistorene skal vælges er det også væsenligt at vide hvor meget spænding ogmstrøm skal de kunne holde til. Fordi alle transistorene er ikke tændt på en gang kan der ses at der kan maksimum lægge $\SI{18}{V} - \SI{6}{V} = \SI{12}{V} $ for den øvreste transistor, og \SI{6}{V} for transistoren i det midteste trin. 
+Men fordi der løber det samme strøm i begge øvreste transistorer når signalet kommer op på de \SI{18}{V.peak} skal de begge to kunne tåle strømmen på:
+\begin{gather*}
+I_{max} = \frac{V_{peak.max}}{R_{L}} \\
+I_{max} = \frac{18}{8} \\
+I_{max} = \SI{2.25}{A}
+\end{gather*}
+
+Ud fra disse krav er der blevet  vælgt to darlington NPN transisorer (bdx33B) til det øvrste trin og to darlington PNP transistorer(bdx33C)  til det nedeste trin. 
+
+\subsubsection {Bestemmelse af køleplade}
+Der skal vælges en køleplade ud fra junktion-til-omgivelser temperatur modstand. Den kan findes når der kendt den højste junktion-til-case modstand , som kan aflæses i databladet for en transistor til \SI{1.78}{C \per W}. Der blevet også vælgt en silikone isolering mellem transisoren og kølepladen, som kannaflæses i databladen til \SI{0,61}{C \per W}. Det maksimale junktion temperatur kent til \SI{150}{C}  og den maksimale omgivelses temperatur sættes til \SI{35}{C}. Ud fra disse værdier kan der findes den maksimale termisk modstand som skal være bestremt af kølepladen.
+
+\begin{gather*}
+Q_{sa} \leq \frac{T_{j.max} - T_{a.max}}{P_{Q}} - Q_{jc}-Q_{cs} \\
+Q_{sa} \leq \frac{150 - 35}{4,108} - 1,78 - 0,61\\
+Q_{sa} \leq \SI{25,67}{C\per W}
+\end{gather*}
+
+Der blevet vælgt en køleplade som har $Q_{sa}  $ på \SI{18}{C\per W }.
+Så den maksimale junktion til case temperatur kan udregnes til:
+
+\begin{gather*}
+T_{j.max} = T_{a.max} + P_{Q} \cdot (Q_{jc} + Q_{cs} + Q_{sa}) \\
+T_{j.max} = 35 + 4,105 \cdot (1,78+0,61+18) \\
+T_{j.max} = \SI{118}{C}
+\end{gather*}
+
+Der kan ses at junktion til case temperatur bliver ikke højre end \SI{118}{C}. Dette er temperatur, som blevet fordelt melem to darlington transistorer. 

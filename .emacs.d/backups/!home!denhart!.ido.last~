@@ -1,0 +1,146 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/denhart/Documents/AAU/project2/rapport/sections/" . "rapportmeta/")
+ ("/home/denhart/Documents/AAU/project2/rapport/" . "sections/")
+ ("/home/denhart/.emacs.d/vendor/yasnippet/snippets/" . "c-mode/")
+ ("/home/denhart/.emacs.d/vendor/yasnippet/" . "snippets/")
+ ("/home/denhart/.emacs.d/vendor/" . "yasnippet/")
+ ("/home/denhart/Documents/AAU/project2/" . "rapport/")
+ ("/usr/" . "local/")
+ ("/home/denhart/.emacs.d/" . "configs/")
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/server/" . "Main/")
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/" . "server/")
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/" . "rapportmeta/")
+ ("/" . "usr/")
+ ("/home/denhart/Documents/AAU/project1/rapport/" . "sections/")
+ ("/home/denhart/Documents/AAU/project1/" . "rapport/")
+ ("/home/denhart/Documents/AAU/" . "project1/")
+ ("/home/denhart/Documents/" . "AAU/")
+ ("/home/denhart/" . "gdb_test/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/denhart/glade/"
+ "/home/denhart/"
+ "/home/denhart/gdb_test/"
+ "/home/denhart/Documents/AAU/project1/rapport/sections/rapportmeta/"
+ "/home/denhart/Documents/AAU/project2/rapport/sections/rapportmeta/"
+ "/home/denhart/Documents/AAU/project2/rapport/bib/"
+ "/home/denhart/Documents/AAU/project2/rapport/sections/problemafsnit/"
+ "/home/denhart/Documents/AAU/project2/rapport/sections/"
+ "/home/denhart/.emacs.d/configs/"
+ "/home/denhart/AAUVPN/"
+ "/home/denhart/.emacs.d/"
+ "/home/denhart/.emacs.d/vendor/yasnippet/snippets/c-mode/"
+ "/home/denhart/.emacs.d/vendor/yasnippet/"
+ "/home/denhart/Documents/AAU/project2/rapport/"
+ "/home/denhart/Documents/AAU/project1/rapport/"
+ "/usr/local/bin/"
+ "/home/denhart/Documents/"
+ "/home/denhart/Documents/AAU/project1/"
+ "/home/denhart/Documents/AAU/project1/PV/"
+ "/home/denhart/Documents/AAU/project1/rapport/sections/prototype/server/Main/"
+ "/home/denhart/Documents/AAU/project1/rapport/bilag/"
+ "/home/denhart/Documents/AAU/project1/rapport/sections/"
+ "/home/denhart/Documents/AAU/project1/rapport/sections/prototype/server/"
+ "/home/denhart/Documents/AAU/project1/rapport/sections/ideudvikling/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "main.cpp"
+ "main.cpp.old"
+ "quitdialog.cpp"
+ "quitdialog.h"
+ "test.cpp"
+ "test.c"
+ "forord.tex"
+ "kilder.bib"
+ "relevanteData.tex"
+ "indlaeringsMetode.tex"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/denhart/glade/" (20299 59368) "main" "main.cpp" "quitdialog.h" "basic.glade" "main.cpp.old" "./" "../" "quitdialog.cpp")
+
+ ("/home/denhart/Documents/AAU/project2/rapport/" (20299 32010) "sections/" "images/" "bib/" "#master.tex#" "master.tex" "master.log" "bilag/" "master.pdf" "master.out" "Makefile" "master.toc" "master.bbl" "tables/" "./" "../" "setup/" "master.aux" "master.blg")
+
+ ("/home/denhart/.emacs.d/" (20299 34814) "session.10d1d4d3ec5c0511c4132912257836669300000008500239" "config.el" "backups/" "vendor/" "auto-save-list/" "session.10d1d4d3ec5c0511c4132912267916828200000008500240" "emacs.d.zip" "session.10d1d4d3ec5c0511c4132907807383962900000008500238" "emacs_henrik_nyt.el" "configs/" "color-theme-gruber-darker.el" "ac-comphist.dat" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project2/rapport/sections/" (20299 31981) "indledning.tex" "problemafsnit.aux" "problemafsnit/" "problemafsnit.tex" "./" "../" "rapportmeta/")
+
+ ("/home/denhart/Documents/AAU/project2/rapport/sections/problemafsnit/" (20299 35532) "cansatIndlaering.tex" "initierendeProblem.tex" "cansatUndervisning.tex" "rummetIdag.tex" "indlaeringsMetode.tex" "rummetSkolen.tex" "./" "../")
+
+ ("/home/denhart/gdb_test/" (20299 34814) "#test.c#" "prog" "test.c" "./" "../")
+
+ ("/home/denhart/" (20299 45332) "AAUVPN.zip" "test.aux" "The.Big.Bang.Theory.S05E18.The.Werewolf.Transformation.HDTV.XviD-FQM/" "xsendkey.c" "indledningp2-udkast.txt" "The.Big.Bang.Theory.S05E12.HDTV.XviD-ASAP/" ".icedtea/" "Curiosity.S01E14.How.Evil.Are.You.HDTV.XviD-DiVERGE/" ".ICEauthority" "test.cpp" ".gvfs/" "test.sch" ".mozilla/" "spotify.png" "lektion 4.pdf" "sendkey2.c" "glade/" "AUR/" "KCL.png" "gdb_test/" ".idapro/" "3f67e062596cc92a583a2f7ea941a480.jpg" ".dmrc" "#test.tex#" ".bash_logout" "51-STC-avr.pdf" "WorkshopSSU.log" ".macromedia/" ".cache/" ".pcbcalc" "The.Big.Bang.Theory.S05E15.HDTV.XviD-LOL/" "logo-wide.svg" "#test.c#" ".putty/" "workspace/" ".TrueCrypt/" ".thunderbird/" "projekt2.log" "emacs_conf_backup/" "The.Big.Bang.Theory.S05E17.HDTV.XviD-LOL/" "nigga" "Music/" "Mail/" "Downloads/" "mediaplayerkeypressed.list" ".subversion/" ".nvidia-settings-rc" ".vim/" "initprob.pdf" "American.Dad.S07E10.HDTV.XviD-LOL/" "loveboat.png" ".ssh/" "android-sdks/" ".dbus/" "Gsm_playground/" ".gnuplot_history" "ss.png" ".gnuplot-wxt" ".gnupg/" "mprismeta.c" "American.Dad.S07E08.HDTV.XviD-LOL/" "Projects/" ".gphoto/" "House.S08E10.HDTV.XviD-LOL/" "a.out" "The.Simpsons.S23E11.HDTV.XviD-LOL/" "IMG_16012012_193350.png" ".gnome2_private/" ".bash_profile" ".eeschema" "initprob.tex" "thunderbirdnotify" ".bashrc" "Sand-to-Silicon_22nm-Version.pdf" ".bash_history" ".oces2/" "NetBeansProjects/" "libraries/" ".wine/" ".swp" "Drugs.Inc.S02E01.Crack.HDTV.XviD-DiVERGE/" "The.Big.Bang.Theory.S05E14.HDTV.XviD-LOL/" "minicom.log" "senkey" ".vimrc" "elinks.png" "test.pdf" ".gconf/" "B7VQ4U7SVP6S5AKH" ".jindent/" "test.tex" "pidgin-musictracker-0.4.22/" "salinasv-libmpris-8b30c88/" "spotify-notify/" "blog.aux" "Family.Guy.S10E10.HDTV.XviD-LOL/" "mprismeta.c~" "Untitled Folder/" "projekt2.aux" "matlab/" ".pulse-cookie" "WorkshopSSU.aux" ".thumbnails/" "Games/" "README" "todo" "spotkeys.d" "lektion 5.pdf" "293110_10150382553020921_626380920_10619398_2046477_n.jpg" "rar/" "vpnc-script" "love.jpg" "spotkeys" "danid.log" ".fontconfig/" "#indledningp2-udkast.txt#" ".gimp-2.6/" "Family.Guy.S10E11.HDTV.XviD-LOL/" ".dropbox/" "PKGSPOT" "initprob.log" "vpnfoo" "moar.png" "blog.log" "kiCad/" ".mysql_history" "VisualBoyAdvance.exe" ".swt/" "zleep.png" ".netbeans/" ".Xauthority" "House.S08E09.HDTV.XviD-LOL/" ".ido.last" "The.Big.Bang.Theory.S05E16.HDTV.XviD-LOL/" "spot" "The.Simpsons.S23E12.HDTV.XviD-LOL/" ".viminfo" ".esd_auth" "jarnalshell.conf" "sendkey.c" ".arduino/" "marshal.h" "pcanywhere.rar" ".Foxit/" "grub.conf" ".lesshst" ".emacs" ".xonotic/" "AAUVPN/" "PV-opgave.odt" "svn/" ".Skype/" "initprob.aux" "Dropbox/" "Carina/" "pcanywhere/" ".android/" "glibtest.c" ".elinks/" "National.Geographic.Drugs.Inc.Part.2.Meth.HDTV.XviD-MOMENTUM/" "test.log" "Pictures/" "Pokemon Red.gb" ".eclipse/" "gtest.c" ".mission-control/" "WorkshopSSU.pdf" ".alsaplayer/" "texput.log" ".gnome/" ".kicad" "FlatOut 2/" "Desktop/" "phonenr" "nyemacsbak/" "loveboat small logo-fixed-again.png" ".cvpcb" ".adobe/" "test.c" "Screenshot at 2012-01-20 00:12:39.png" "Gameboy/" ".pulse/" ".eshell/" "arduinotest/" ".teamviewer/" "Analogteknik 1.pdf" "testpro.pro" "Documents/" ".xsession-errors" "recovery.img" "The.Simpsons.S23E13.HDTV.XviD-LOL/" "tidsplan.png" "#initprob.tex#" "Family.Guy.S10E13.HDTV.XviD-LOL/" "#text.tex#" ".config/" "spotify-notify.py" ".local/" "yakju-icl53f/" ".java/" "xsendkey" "American.Dad.S07E09.HDTV.XviD-LOL/" "blog.tex" "projekt2.tex" ".emacs~" "blog.pdf" ".nv/" ".gstreamer-0.10/" ".emacs.d/" "National.Geographic.Drugs.Inc.Part.4.Marijuana.HDTV.XviD-MOMENTUM/" ".gnome2/" "House.S08E11.HDTV.XviD-LOL/" "aauvpn" "Templates/" "Public/" ".gaijin_games/" ".pki/" ".bzr.log" "fisk/" "test" ".recentf" "50 Days of Lulz/" "seal.gif" "jarnal/" "iphn/" "#test.cpp#" "The.Simpsons.S23E10.HDTV.XviD-LOL/" "loveboat" "mediapleryerkeypressed.list" ".texlive/" "Drugs.Inc.S02E05.Ketamine.HDTV.XviD-NMBSTV/" "Xonotic/" "Drugs.Inc.S02E04.Hallucinogens.HDTV.XviD-DiVERGE/" "WorkshopSSU.tex" "Videos/" "House.S08E12.720p.HDTV.X264-DIMENSION/" "projekt2.pdf" "Grand Theft Auto 2/" "vpn-fixer.sh" ".sqlite_history" "spotdbus/" "icon_spotify.png" ".spotify/" "Family.Guy.S10E12.HDTV.XviD-LOL/" "love.png" "boot.img" ".pcbnew" "arduino-0023/" "skype_static-2.2.0.35/" "hello_world" "The.Big.Bang.Theory.S05E13.HDTV.XviD-ASAP/" ".filezilla/" "sketchbook/" "../" "./")
+
+ ("/home/denhart/AAUVPN/" (20287 31574) "HOWTO" "vpnc-script" "./" "../")
+
+ ("/home/denhart/.emacs.d/configs/" (20286 55392) "defuns.el" "gnuplot.el" "latex.el" "theme.el" "psvn.el" "global.el" "google-c-style.el" "epix.el" "custom.el" "color-theme-gruber-darker.el" "tabbar.el" "org-mode.el" "yasnippet.el" "auto-complete" "ebib.el" "./" "../" "bindings.el")
+
+ ("/home/denhart/Documents/AAU/project2/rapport/bib/" (20293 14277) "kilder.bib" "Web to PDF.txt" "Kilder i PDF/" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project2/rapport/sections/rapportmeta/" (20293 13414) "indledning.tex" "forord.aux" "frontpage.tex" "indledning.aux" "titlepages.tex" "synopsis.tex" "forord.log" "./" "../" "forord.tex")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/rapportmeta/" (20207 44437) "indledning.tex~" "indledning.tex" "frontpage.tex" "titlepages.tex" "synopsis.tex" "./" "../" "forord.tex")
+
+ ("/home/denhart/Documents/AAU/project2/" (20291 33026) "misc/" "vejledermoeder/" "rapport/" ".svn/" "./" "../" "code/")
+
+ ("/usr/local/bin/" (20286 41997) "emacsnb" "./" "../")
+
+ ("/home/denhart/.emacs.d/vendor/yasnippet/snippets/c-mode/" (20286 39140) "while-loop" "printf" "fopen" "if-statement" "./" "../" ".yas-parents")
+
+ ("/home/denhart/.emacs.d/vendor/yasnippet/snippets/" (20230 22610) "erlang-mode/" "c++-mode/" "cc-mode/" "text-mode/" "nxml-mode/" "csharp-mode/" "python-mode/" "emacs-lisp-mode/" "perl-mode/" "cperl-mode/" "sql-mode/" "ruby-mode/" "latex-mode/" "f90-mode/" "objc-mode/" "c-mode/" "markdown-mode/" "snippet-mode/" "scala-mode/" "html-mode/" "./" "../" "rst-mode/" "css-mode/")
+
+ ("/home/denhart/.emacs.d/vendor/yasnippet/" (20279 54333) "dropdown-list.el" "doc/" "snippets/" "yasnippet-debug.el" "extras/" "README.mdown" "yasnippet.el" "./" "../" "Rakefile")
+
+ ("/home/denhart/.emacs.d/vendor/auto-complete/" (20279 37256) "doc/" "auto-complete.elc" "README.txt" "popup.el" "auto-complete.el" "COPYING.FDL.txt" "COPYING.GPLv3.txt" "auto-complete-config.el" "Makefile" "etc/" "fuzzy.elc" "popup.elc" "dict/" "auto-complete-config.elc" "./" "../" "TODO.txt" "fuzzy.el")
+
+ ("/home/denhart/.emacs.d/vendor/" (20281 12426) "tabbar/" "color-theme-gruber-darker/" "yasnippet/" "gnuplot/" "psvn/" "google-c-style/" "ebib/" "highline/" "epix/" "auto-complete/" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/" (20283 62866) "sections/" "latex_guide/" "images/" "compileflows.sh" "bib/" "#master.tex#" "test.pdf" "test.tex" "master.tex" "bilag/" "testMakefile" "master.pdf" "Makefile" "master_old.pdf" "tables/" "./" "../" "setup/" "master.old")
+
+ ("/home/denhart/Documents/AAU/" (20273 33450) "project2/" "project1/" "project.bak/" "project0/" "ny/" "dbtest/" "CANsat-ideer" "./" "../" "finalserver/")
+
+ ("/bin/" (20275 39455) "hostname" "dmesg" "cut" "login" "ln" "lsblk" "domainname" "umount" "shred" "grep" "more" "dd" "findmnt" "install" "bunzip2" "sh" "touch" "tar" "lowntfs-3g" "ping" "netstat" "loadkeys" "stty" "mountpoint" "dircolors" "su" "chgrp" "gunzip" "egrep" "mkdir" "bzip2recover" "ls" "vdir" "mknod" "mv" "bashbug" "gawk" "tput" "traceroute6" "ntfs-3g" "cp" "gawk-4.0.0" "fgrep" "readlink" "fusermount" "false" "pidof" "zcat" "keyctl" "date" "rmdir" "du" "sync" "./" "rm" "tr" "arch" "../" "uncompress" "uname" "less" "ping6" "ulockmgr_server" "dir" "pwd" "dnsdomainname" "traceroute" "bzcat" "ps" "sed" "chmod" "true" "lsmod" "chown" "bzip2" "awk" "sleep" "echo" "groups" "kill" "cat" "mount" "df" "gzip" "mkfifo" "bash")
+
+ ("/usr/local/" (20207 30697) "src/" "sbin/" "lib/" "man/" "share/" "etc/" "./" "include/" "../" "games/" "bin/")
+
+ ("/usr/" (20212 27283) "avr/" "src/" "sbin/" "lib/" "local/" "share/" "./" "lib32/" "include/" "../" "lib64/" "x86_64-unknown-linux-gnu/" "bin/")
+
+ ("/home/" (20280 53581) "soeren/" "lost+found/" "./" "../" "denhart/")
+
+ ("/home/denhart/Documents/" (20281 7023) "Samarbejdsaftale.aux" "Samarbejdsaftale.tex" "PV.zip" "Samarbejdsaftale.log" "auto/" "projekt1.fz" "PV_6_Slides_Faa_styr_paa_samarbejdet.pdf" "AAU/" "Samarbejdsaftale.out" "Samarbejdsaftale.pdf" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/ideudvikling/" (20207 33899) "ideRfid.tex" "ideMicrocontroller.tex~" "ideMicrocontroller.tex" "ideDb.tex~" "ideMicroServer.tex" "ideRfid.tex~" "ideer.tex" "ideMprProgrammering.tex~" "ideDb.tex" "ideMprProgrammering.tex" "ideKommProgrammering.tex" "./" "../" "intelligens.tex" "ideMicroServer.tex~")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/server/" (20255 62123) "Main/" "docDbStruktur.tex~" "docKommunikation.tex~" "docDatabase.tex~" "docDbStruktur.tex" "docDatabase.tex" "server-software.tex" "docKommunikation.tex" "server-software.tex~" "./" "../" "SQlite3-note.tex")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/" (20207 38773) "opsamling/" "prototype/" "prototype.tex~" "problemafsnit/" "test.tex" "ideudvikling.tex" "problemafsnit.tex~" "ideudvikling/" "problemafsnit.tex" "prototype.tex" "opsamling.tex" "test/" "./" "../" "usorteret/" "rapportmeta/")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/bilag/" (20207 38773) "bilag.tex" "links.tex" "drunkfig.tex" "Problemformulering/" "rfidkilder" "indhold.txt" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/server/Main/" (20207 33518) "Algoritmer.tex" "Main.tex" "Main.tex~" "./" "../" "Funktioner.tex")
+
+ ("/home/denhart/Documents/AAU/project1/PV/" (20263 9849) "Samarbejdsaftale.tex" "Opgaver PDF/" "images/" "pv2.tex" "pv6.tex" "pv7.tex" "master.tex" "#Indhold i portfolio.txt#" "Adizes test.ods" "SWOT_analyse.pdf" "pvend.tex" "pv4.tex" "Makefile" "Indhold i portfolio.txt" "pvfront.tex" "pv5.tex" "pv1.tex" "Samarbejdsaftale.pdf" "pv3.tex" "./" "../" "PV stuff/")
+
+ ("/home/denhart/Documents/AAU/project1/" (20273 33459) "Evaluering med udgangspunkt i de studerendes l-reproces.pdf" "locks/" "README.txt" "Bilag CD/" "brainstorm/" "Desktop.ini" "PV/" "rfidbasic.pde" "SVN server.txt" "projekt1.fz" "Sensor Diag_schem.jpg" "presentation/" "project0/" "Vejledermøde/" "hooks/" "#README.txt#" "db/" "adminInterface/" "Proto billeder/" "log.txt" "rapport/" ".svn/" "format" "ting der skal kigges igennem.txt" "P1/" "conf/" "#SVN server.txt#" "./" "Struktur over statusseminar.tex" "../" "code/" "SQlite3-note.tex" "svn.ico" "opgaver.jpg")
+
+ ("/home/denhart/Documents/AAU/project1/presentation/eksamen/sections/" (20275 37648) "4.tex" "9.tex" "2.tex" "#2.tex#" "1.tex" "12.tex" "6.tex" "7.tex~" "5.tex" "#7.tex#" "8.tex" "2.tex~" "10.tex" ".#7.tex" "./" "../" "11.tex" "3.tex" "7.tex")
+
+ ("/home/denhart/pidgin-musictracker-0.4.22/src/" (19634 7139) "exaile.c" "filter.c" "utils.h" "msn-compat.c" "lastfm.c" "musictracker.c" "squeezecenter.c" "xmmsctrl.c" "winamp.c" "quodlibet.c" "Makefile.mingw" "iTunesCOMInterface_i.c" "config-win32.h" "libmpdclient.c" "vagalume.c" "rhythmbox.c" "iTunesCOMInterface.h" "moc.c" "lastfm_ws.c" "actions.c" "utils.c" "wa_ipc.h" "banshee.c" "actions.h" "libmpdclient.h" "filter.h" "wmp.c" "mpris.c" "listen.c" "xmms2.c" "itunes.cpp" "preferences.c" "musictracker.h" "disphelper.h" "disphelper.c" "foobar2000.c" "gettext.h" "./" "../" "Makefile.in" "dbusbird.c" "amarok.c" "Makefile.am" "mpd.c" "audacious.c")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/indgangssystem/" (20207 33433) "til_sortering/" "keypad.tex~" "sensor.tex~" "arduino.tex" "opamp.tex" "arduino.tex~" "relay.tex" "keypad.tex" "sensor.tex" "relay.tex~" "rfid.tex~" "rfid.tex" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/prototype/" (20200 45768) "indgangssystem/" "server/" "./" "../")
+
+ ("/home/denhart/Documents/AAU/project1/rapport/sections/problemafsnit/" (20207 3551) "kravspecifikationer.tex" ".#problemanalyse.tex" "kravspecifikationer.tex~" "initierendeproblem.tex" "intelligens.tex~" "problemanalyse.tex~" "./" "../" "problemanalyse.tex" "intelligens.tex" "problemformulering.tex" "fokusomraade.tex" "#problemanalyse.tex#" "initierendeproblem.tex~")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

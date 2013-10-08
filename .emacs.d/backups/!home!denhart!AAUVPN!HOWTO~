@@ -1,0 +1,12 @@
+Conenct til AAU VPN samt remote-desktop med Arch Linux: 
+
+1) Hent og installer openconnect, (sudo) pacman -S openconnect 
+2) Load kernel moduler: Hvis du kører med -ARCH kernel, burde denne være dette ikke være nødvendigt, men hvis ikke: modprobe tun. 
+3) Få Arch til at loade tun @ boot, ret i /etc/rc.conf og tilføj "tun" i din "MODULES=(...)" 
+4) Do the reboot dance?
+5) Udpak vpnc-scriptet fra denne folder, evt. til /home/user eller /etc/ :>
+5.b) Muligvis skal vpnc-scriptet gøres executable, hvilket gøres med "chmod +x /sti/til/vpnc-script"  
+6) Kør openconnect  " (sudo) openconnect --script /etc/vpnc-script ssl-vpn1.aau.dk"
+7) Connect til remote desktop med "rdesktop -k da -u user@student.aau.dk ad-ts01.aau.dk"
+8) ????
+9) PROFIT!

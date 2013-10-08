@@ -1,0 +1,262 @@
+/*
+ *   S25FL128S flash driver for Arduino Uno Bord.
+ *
+ *   @autors Malthe Bilgram, Igor Syrytsin, Søren Nørgaard
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>. *
+ */
+#include "SPI.h"
+
+
+/**
+ * General
+ */
+#define DUMMY 0x00       //Dummy byte, doing nothing :)
+#define MBR 0xFF         //Mode bit reset
+
+/**
+ * Register instructions
+ */
+#define WRR 0x01         // write register 
+#define RDSR2 0x07	 // read status register 2 	
+#define RDSR1 0x05	 // read status register 1
+#define BRRD 0x16	 // read bank register
+#define BRWR 0x17	 // write bank register
+#define CLSR 0x30 	 // clear status register
+#define RDCR 0x35	 // read configuration register
+#define RESET 0xF0	 // reset flash
+#define ABRD 0x14	 // read autoboot register	
+#define ABWR 0x15	 // write autoboot register
+
+/**
+ * Flash memory array instructions
+ */
+
+/**
+ * general instructions
+ */
+#define WREN 0x06        // Write Enable 
+#define WRDE 0x04        // Write Disable
+#define BE 0x60          // Bulk Erase command
+
+/**
+ * 24-byte adress instructions
+ */
+#define READ 0x03        // Read instruction
+#define PP 0x02          // Page Program instruction
+#define P4E 0x20         // Parameter 4-kB Sector Erase instruction
+#define SE 0xD8          // Sector Erase instruction
+
+/**
+ * Extended (32-byte) adress instructions
+ */
+#define EREAD 0x13       // Read instruction, followed by a 4-byte address
+#define EPP 0x12         // Page Program, followed by a 4-byte address
+#define	EP4E 0x21        // Paraneter 4-kB Sector Erase, followed by a 4-byte address
+#define ESE 0xDC         // Sector Erase, followed by a 4-byte address
+
+
+/**
+ * Write enable.
+ * @param FCS chip select pin
+ */
+void FlWE (unsigned char FCS)
+{
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(WREN);                         // send write enable command
+    digitalWrite(FCS, HIGH);                    // chip select is logic high
+}
+
+/**
+ * Write disable.
+ * @param FCS chip select pin
+ */
+void FlWD (unsigned char FCS)
+{
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(WRDE);                         // send write disable command
+    digitalWrite(FCS,HIGH);                     // sets chip select to high
+}
+
+/**
+ * Reset flash.
+ * @param FCS chip select pin
+ */
+void FlReset (unsigned char FCS)
+{
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(RESET);                        // send write disable command
+    digitalWrite(FCS,HIGH);                     // sets chip select to high
+}
+
+/**
+ * Read status register and run loop as long as there is any bits in status register that set to "1!"
+ * @param FCS chip select pin
+ */
+void FlReadStatReg (unsigned char FCS)
+{
+    int i = 1;
+    digitalWrite(FCS,LOW);                               // chip select is logic low
+    SPI.transfer(RDSR1);                                 // read status register
+    while(i==1) {
+        unsigned char red = SPI.transfer(DUMMY);        // dummy byte
+        // Serial.print("status register:  ");
+        //Serial.println(red,BIN);
+        delay(1);
+        if(red == DUMMY) {
+            digitalWrite(FCS,HIGH);                      // chip select is logic high
+            i=0;
+        }
+    }
+}
+
+
+/**
+ * Read data on 3 byte address.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @return readed Data on address adr.
+ */
+unsigned char FlRead (unsigned char FCS, unsigned long adr)
+{
+    char red = 0;
+    digitalWrite(FCS, LOW);                     // chip select is logic low
+    SPI.transfer(READ);                         // begin read command
+    SPI.transfer((adr & 0x00FF0000) >> 16);
+    SPI.transfer((adr & 0x0000FF00) >>  8);
+    SPI.transfer((adr & 0x000000FF) >>  0);
+    red =  SPI.transfer(DUMMY);              // take input and load it to "readed"
+    digitalWrite(FCS, HIGH);                    // chip select is logic high
+    return red;
+}
+
+/**
+  * Write data to 3 byte address.
+  * @param FCS chip select pin
+  * @param data Data to be written to address.
+  * @param adr First 3 rightmost bytes contain address.
+  */
+unsigned char FlProgram(unsigned char FCS,unsigned long adr, unsigned char data)
+{
+    FlWE(FCS);                                         // write enable command
+    digitalWrite(FCS, LOW);                            // chip select is logic low
+    SPI.transfer(PP);                                  // begin program commando
+    SPI.transfer((adr & 0x00FF0000) >> 16);
+    SPI.transfer((adr & 0x0000FF00) >>  8);
+    SPI.transfer((adr & 0x000000FF) >>  0);
+    SPI.transfer(data);                                // send data
+    digitalWrite(FCS,HIGH);                            // sets chip select to high
+    FlReadStatReg(FCS);                                // Read the status register
+    
+
+}
+
+/**
+ * Write page of data in form of an unsigned char data array .
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @param *data  Pointer to data array to program, may max be 256 bytes long!
+ * @param datalen Defined number of loops must be done to program data,
+ * must be as big as array(if array is data[256], datalen must be 256)
+ */
+unsigned char FlProgramEx (unsigned char FCS,unsigned long adr,unsigned char *data,unsigned char datalen)
+{
+    unsigned char i;
+    FlWE(FCS);                                                // write enable command
+    digitalWrite(FCS,LOW);                                    // chip select is logic low
+    SPI.transfer(PP);                                         // begin program commando
+    SPI.transfer((adr & 0x00FF0000) >> 16);
+    SPI.transfer((adr & 0x0000FF00) >>  8);
+    SPI.transfer((adr & 0x000000FF) >>  0);
+    for(i=0 ; i<datalen ; i++) {                             // Initializing loop
+        SPI.transfer(data[i]);                                  // send data
+    }
+    digitalWrite(FCS,HIGH);                                   // sets chip select to high
+    FlReadStatReg(FCS);// Reading the status register 
+}
+
+/**
+ * Read a page of data from flash.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ * @param *data  Pointer to data array to read to, may max be 256 bytes long!
+ * @param datalen Defined number of loops must be done to program data,
+ * must be as big as array(if array is data[256], datalen must be 256)
+ */
+void FlReadEx (unsigned char FCS,unsigned long adr, unsigned char *red, unsigned char datalen)
+{
+    unsigned char i;
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(READ);                         // begin read command
+    SPI.transfer((adr & 0x00FF0000) >> 16);
+    SPI.transfer((adr & 0x0000FF00) >>  8);
+    SPI.transfer((adr & 0x000000FF) >>  0);
+    for (i = 0; i<datalen; i++) {              // Initializing loop
+        red[i] =  SPI.transfer(DUMMY);           // take input and load it to "readed"
+    }
+    digitalWrite(FCS,HIGH);                     // chip select is logic high
+}
+
+/**
+ * Delete byte of data at 3 byte address.
+ * @param FCS chip select pin
+ * @param adr First 3 rightmost bytes contain address.
+ */
+void FlErase (unsigned char FCS,unsigned long adr)
+{
+    FlWE(FCS);                                  // write enable command
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(SE);                           // Sector erase command
+    SPI.transfer((adr & 0x00FF0000) >> 16);
+    SPI.transfer((adr & 0x0000FF00) >>  8);
+    SPI.transfer((adr & 0x000000FF) >>  0);
+    digitalWrite(FCS,HIGH);                     // chip select is logic high
+    FlReadStatReg(FCS);                         // Read the status register
+}
+
+
+
+
+
+/**
+ * Delete everything in flash memory array.
+ * @param FCS chip select pin
+ */
+void FlEraseAll (unsigned char FCS)
+{
+  unsigned long i,adr; 
+  for (i = 0; i < 255 ; i++){
+    adr = 0x0000FFFF * i;
+    FlErase(FCS,adr);
+    Serial.print("deleted sector Nr ");
+    Serial.println(i);
+  }
+}
+
+/**
+ * Resets Status and Instruction registers
+ * @param FCS chip select pin
+ */
+void FlWriteReg (unsigned char FCS)
+{
+
+    FlWE(FCS);                                  // write enable command
+    digitalWrite(FCS,LOW);                      // chip select is logic low
+    SPI.transfer(WRR);                          // Bulk erase command
+    SPI.transfer(0x00);                         // Sending 00 to status register
+    SPI.transfer(0x00);                         // Sending 00 to instruction register
+    digitalWrite(FCS,HIGH);                     // chip select is logic high
+    FlReadStatReg(FCS);                         // Read the status register
+
+}

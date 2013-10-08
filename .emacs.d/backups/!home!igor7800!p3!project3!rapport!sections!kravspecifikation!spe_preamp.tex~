@@ -1,0 +1,21 @@
+\subsection{Preamp (AUX)}
+\label{sec:spec-preamp}
+
+Herunder er listet de specifikke krav for en forforstærker til en Auxiliary inputsignal. 
+
+Disse krav tager udgangspunkt i IEC 581-6-standarden~\cite{iec-581-6}.
+
+\begin{description}
+
+\krav{req:preamp-imp} Indgangsimpedans: \SI{22}{k\ohm}/\SI{250}{p\F} .
+
+\krav{req:preamp-ampl} Indgangsamplitude: \SI{500}{mV}.
+
+\krav{req:preamp-frekvens} Frekvensbånd: \SI{40}{Hz}--\SI{16000}{Hz}, inden for tolerancen på \pm \SI{5}{dB} relateret til \SI{1000}{Hz} 
+
+ \krav{req:preamp-thd}  Total harmonisk forvrængning (for forforstærker):
+    $<\SI{0,5}{\%}$. 
+
+ 
+\end{description}
+
