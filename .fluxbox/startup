@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+#xmodmap "/home/igor7800/.Xmodmap"
+
+
+
+
+#setkeyboardmap
+#setxkbmap dk &
+setxkbmap -layout dk nodeadkeys & 
+
+
+#sound applet
+#gnome-sound-applet &OA
+alsa-tray &
+
+
+
+#battery monitor
+xfce4-power-manager &
+
+#backlight
+xbacklight &
+
+#launch programs
+launchy &
+
+#terminal
+guake &
+
+#dropbox
+dropboxd &
+
+#network
+nm-applet &
+#wicd-gtk &
+
+#wallpaper
+nitrogen --restore &
+
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "/home/igor7800/.fluxbox/log"
+
