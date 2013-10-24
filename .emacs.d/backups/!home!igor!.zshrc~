@@ -23,6 +23,7 @@ alias p5='cd ~/svn/project5'
 alias rep='cd ~/svn/project5/rep'
 alias devices='sudo fdisk -l'
 alias monitors='arandr'
+alias matlab='cd ~/matlab/bin/ && ./matlab -nojvm'
 
 PS1='[\u@\h \W]\$ '
 plugins=(git archlinux)

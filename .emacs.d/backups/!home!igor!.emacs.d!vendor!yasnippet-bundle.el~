@@ -3963,7 +3963,7 @@ Use multiple times to bind different COMMANDs to the same KEY."
 ;;; snippets for c-mode
 (yas/define-snippets 'c-mode
 		     '(("fopen" "FILE *${fp} = fopen(${\"file\"}, \"${r}\");\n" "FILE *fp = fopen(..., ...);" nil nil nil nil nil)
-		       ("printf" "printf (\"${1:%s}\\\\n\"${1:$(if (string-match \"%\" text) \",\" \"\\);\")\n}$2${1:$(if (string-match \"%\" text) \"\\);\" \"\")}" "printf " nil nil nil nil nil))		    
+		       ("printf" "printf (\"${1:%s}\\\\n\"${1:$(if (string-match \"%\" text) \",\" \"\\);\")\n}$2${1:$(if (string-match \"%\" text) \"\\);\" \"\")}" "printf " nil nil nil nil nil))
 		     '(cc-mode))
 
 
@@ -4159,7 +4159,6 @@ Use multiple times to bind different COMMANDs to the same KEY."
 (yas/define-snippets 'latex-mode
 		     '(("begin" "\\begin{${1:environment}}\n$0\n\\end{$1}" "\\begin{environment} ... \\end{environment}" nil nil nil nil nil)
 		       ("frac" "\\frac{$1}{$2}$0" "Frac" nil nil nil nil nil)
-		       ("ref" "\\ref{$1}$0" "ref" nil nil nil nil nil)
 		       ("SI" "\\SI{$1}{$2}$0" "SI" nil nil nil nil nil)
 		       ("si" "\\si{$1}$0" "si" nil nil nil nil nil)
 		       ("num" "\\num{$1}$0" "num" nil nil nil nil nil)

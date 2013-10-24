@@ -1,0 +1,3 @@
+! No Caps Lock
+ remove Lock = Caps_Lock
+ keysym Caps_Lock = Undo Redo

@@ -10,7 +10,4 @@
             (local-set-key (kbd "C-c C-<down>")  'hs-show-all)
             (hs-minor-mode t)
             ))
-(setq c-default-style "linux"
-      c-basic-offset 4
-      indent-tabs-mode nil
-      tab-width 4)
+  

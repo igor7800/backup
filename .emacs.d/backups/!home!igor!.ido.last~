@@ -2,55 +2,68 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/igor/Documents/github/" . "alsa/")
+ ("/home/igor/Documents/" . "github/")
  ("/home/igor/svn/project5/rep/sec/" . "problem_analysis/")
  ("/home/igor/svn/project5/rep/" . "sec/")
  ("/home/igor/svn/project5/" . "rep/")
  ("/home/igor/svn/" . "project5/")
- ("/home/igor/.emacs.d/" . "configs/")
+ ("/home/igor/.emacs.d/" . "vendor/")
  ("/home/igor/" . ".emacs.d/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/igor/.emacs.d/vendor/"
  "/home/igor/.emacs.d/configs/"
+ "/home/igor/Documents/github/alsa/"
+ "/home/igor/.emacs.d/"
+ "/home/igor/Documents/github/filter_design/"
  "/home/igor/Documents/"
  "/home/igor/svn/project5/rep/sec/problem_analysis/"
  "/home/igor/.fluxbox/"
  "/home/igor/"
- "/home/igor/.emacs.d/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "matlab_mode.el"
- "test.c"
- "filters.tex"
- "filters.org"
- "battery_life_wireless.tex"
- "mkdev.sh"
- "nexusOps.org"
- "startup"
- "flyspell.el"
- "###test.tex###"
+ "yasnippet-bundle.el"
+ "yasnippet-1.el"
+ "c-mode.el"
+ "mypcm.h"
+ "capture.c"
+ "random.c"
+ "sine_new.c"
+ "playback.c"
+ "playback_sin.c"
+ "config.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/igor/.emacs.d/configs/" (21074 26852 556825 574000) "ebib.elc" ".#matlab-mode.el" "custom.el" "defuns.el" "./" "auto-pair.el" "yasnippet-1.el" "tabbar.el" "org-mode.el" "#some.tex#" "psvn.el" "yasnippet.elc" "auto-complete" "google-c-style.el" "arduinoMode.el" "bindings.el" "ebib.el" "global.elc" "flyspell.el" "c-mode.el" "theme.el" "markMultiple.el" "latex.el" "gnuplot.el" "google-c-style.elc" "epix.el" "#latex.el#" "global.el" "latex.elc" "../" "color-theme-gruber-darker.el")
+ ("/home/igor/.fluxbox/" (21086 29841 58392 103000) "init" "keys" "slitlist" "menuconfig" "fbrun_history" "./" "overlay" "apps" "menu" "pixmaps/" "startup" "lastwallpaper" "backgrounds/" "windowmenu" "menu.bak" "styles/" "icons/" "startup~" "../")
 
- ("/home/igor/.emacs.d/" (21066 43830 336092 3000) "tramp" "#config#" "./" "session.10d1d4d3ec5c0511c4132912257836669300000008500239" "backups/" "ac-comphist.dat" "config.el~" "configs/" "session.10d1d4d3ec5c0511c4132907807383962900000008500238" "auto-save-list/" "eshell/" "vendor/" "session.10d1d4d3ec5c0511c4132912267916828200000008500240" "config.el" "../")
+ ("/home/igor/svn/project5/rep/sec/problem_analysis/" (21092 54816 553231 440000) "filter_analysis.tex" "room_analysis.tex" "#filters_igor.tex#" "computer_platform.tex" "dig_sic_dft.tex" "requirement_introduction.tex" "wireless_communication.tex" "./" "capacitor_microphone.tex" "speaker.tex" ".#microphone.tex" "computer_input_GPIO.tex" ".#filters_igor.tex" "dig_sig_proc_buffers.tex" "filter_standards.tex" "#microphone.tex#" "microphone_sensitivity.tex" "speaker_sensitivity.tex" "microphone.tex" "requirement_interfaces.tex" "digital_versus_analog_from_wireless_communication_appendix.tex" "battery_life_wireless.tex" "requirement_system_functions.tex" "propagation_delay.tex" "filters.tex" "../")
 
- ("/home/igor/" (21074 26867 876824 626000) ".cache/" ".pulse-cookie" ".com.zerog.registry.xml" ".texlive/" ".zsh-update" ".local/" ".launchy/" ".java/" "Downloads/" ".zshrc" ".dbus/" ".ispell_british" "./" ".steam/" ".zsh_history" ".ts3client/" "Maple_Toolbox_Install_10_01_2013_12_44_41.log" ".ssh/" ".maple/" "Videos/" ".bashrc" ".adobe/" ".zcompdump" ".ICEauthority" ".gstreamer-0.10/" ".steampath" ".subversion/" ".emacs" "Desktop/" "weby-icon-cache/" ".ido.last" "mapleCode.org" "isus/" "emacsLaptop.tgz" ".wicd/" ".esd_auth" ".macromedia/" ".gitconfig" ".ngspice_history" "danid.log" "Public/" ".oh-my-zsh/" ".Xauthority" ".dropbox/" ".hedgewars/" ".emacs.d/" ".spicec/" "Documents/" "matlab/" "launchy.ini" "Music/" ".config/" ".InstallAnywhere/" ".xinitrc" ".matlab/" ".maplesoft/" ".xsession" ".steampid" "maple17/" ".gtkevemon/" ".kde4/" ".flexlmrc" ".pki/" "Maple_Player_Install_10_01_2013_12_20_18.log" "Templates/" ".wine/" ".wireshark/" "Dropbox/" ".xsession-errors" "Maple1702Linux32Upgrade.bin" ".Skype/" ".fluxbox/" ".bash_profile" "svn/" ".gnupg/" ".qucs/" ".thumbnails/" "update.sh" "mapleplayer/" ".bash_logout" "Pictures/" ".mapleplayer/" "launchy.db" "../" ".oces2/")
+ ("/home/igor/Documents/github/filter_design/" (21075 57890 966498 753000) "./" ".git/" "filter_design.m" "README.md" "../")
+
+ ("/home/igor/.emacs.d/vendor/" (21030 9067 134602 598000) "nline-string-rectangle.el" "psvn/" "./" "yasnippet/" "markmultiple/" "inline-string-rectangle.el" "auto-complete-config.el" "tabbar/" "mark-multiple.el" "arduino-mode.el" "autopair.el" "mm-pabbrev-integration.el" "yasnippet-bundle.el" "mark-more-like-this.el" "highline/" "ace-jump-mode.el" "hl-spotlight.el" "autopair-latex.el" "rename-sgml-tag.el" "epix/" "../" "ebib/")
+
+ ("/home/igor/.emacs.d/configs/" (21074 26908 86821 861000) "ebib.elc" ".#matlab-mode.el" "custom.el" "defuns.el" "./" "auto-pair.el" "yasnippet-1.el" "tabbar.el" "org-mode.el" "#some.tex#" "psvn.el" "yasnippet.elc" "auto-complete" "google-c-style.el" "arduinoMode.el" "bindings.el" "ebib.el" "global.elc" "flyspell.el" "c-mode.el" "theme.el" "markMultiple.el" "latex.el" "gnuplot.el" "google-c-style.elc" "epix.el" "#latex.el#" "global.el" "latex.elc" "matlab_mode.el" "../" "color-theme-gruber-darker.el")
+
+ ("/home/igor/.emacs.d/" (21074 26977 926817 94000) "tramp" "#config#" "./" "session.10d1d4d3ec5c0511c4132912257836669300000008500239" "backups/" "ac-comphist.dat" "config.el~" "configs/" "session.10d1d4d3ec5c0511c4132907807383962900000008500238" "auto-save-list/" "eshell/" "vendor/" "session.10d1d4d3ec5c0511c4132912267916828200000008500240" "config.el" "../")
+
+ ("/home/igor/" (21092 54813 929898 176000) ".cache/" ".pulse-cookie" ".com.zerog.registry.xml" ".texlive/" ".zsh-update" "background/" ".local/" ".launchy/" ".java/" "Downloads/" ".zshrc" ".dbus/" ".ispell_british" "./" ".steam/" ".zsh_history" ".ts3client/" "Maple_Toolbox_Install_10_01_2013_12_44_41.log" ".ssh/" ".maple/" "Videos/" ".bashrc" ".adobe/" ".zcompdump" ".ICEauthority" ".gstreamer-0.10/" ".asoundrc" ".steampath" ".subversion/" ".emacs" "Desktop/" "weby-icon-cache/" ".ido.last" "mapleCode.org" "isus/" "emacsLaptop.tgz" ".wicd/" ".esd_auth" ".xscreensaver" ".macromedia/" ".gitconfig" ".ngspice_history" "danid.log" "Public/" ".oh-my-zsh/" ".Xauthority" ".dropbox/" ".hedgewars/" ".emacs.d/" ".spicec/" "Documents/" "matlab/" "launchy.ini" "Music/" ".config/" ".InstallAnywhere/" ".xinitrc" ".matlab/" ".maplesoft/" ".xsession" ".steampid" "maple17/" ".gtkevemon/" ".kde4/" ".flexlmrc" ".pki/" "Maple_Player_Install_10_01_2013_12_20_18.log" "Templates/" ".wine/" ".wireshark/" "Dropbox/" ".xsession-errors" "Maple1702Linux32Upgrade.bin" ".Skype/" ".fluxbox/" ".bash_profile" "svn/" ".gnupg/" ".qucs/" ".thumbnails/" "update.sh" "mapleplayer/" ".bash_logout" "Pictures/" ".mapleplayer/" "launchy.db" "../" ".oces2/")
+
+ ("/home/igor/Documents/github/alsa/" (21092 52695 376620 73000) "capture" "playback_sin" "random.c" "./" "mypcm.h" "sine_new.c" ".git/" "playback" "cardnames.c" "rawmidi/" "countcards.c" "playback_sin.c" "playback_old.c" "440Hz_44100Hz_16bit_05sec.wav" "capture.c" "random" "playback.c" "sine_new" "README.md" "pcm/" "../")
+
+ ("/home/igor/Documents/github/" (21083 41553 53336 953000) "socket_programming/" "backup/" "./" "alsa/" "filter_design/" "../")
+
+ ("/home/igor/Documents/" (21086 20333 112252 104000) "#test.tex#" "./" "sin" "#nexusOps.org#" "##test.tex##" "nexusOps.org" "####test.tex####" "linux_audio/" "mkdev.sh" "#test.org#" "sin.c" "#test.c#" "filters.org" "github/" "###test.tex###" "MATLAB/" "controller.m" "../")
 
  ("/home/igor/svn/project5/rep/" (21056 15033 980051 735000) "img/" "master.tex" "master.out" "master.log" "./" "Makefile" "master.toc" "master.blg" "master.aux" "set/" "master.pdf" "sec/" "master.bbl" "bib/" "app/" "master.tex.latexmain" "../")
 
  ("/home/igor/svn/project5/" (21056 15047 13385 100000) "code/" "./" "courses/" ".svn/" "#lol.fag#" "rep/" "doc/" "../")
-
- ("/home/igor/.fluxbox/" (21052 9562 325186 10000) "init" "keys" "slitlist" "menuconfig" "fbrun_history" "./" "overlay" "apps" "menu" "pixmaps/" "startup" "lastwallpaper" "backgrounds/" "windowmenu" "menu.bak" "styles/" "icons/" "startup~" "../")
-
- ("/home/igor/Documents/" (21052 9453 180031 722000) "#test.tex#" "./" "#nexusOps.org#" "##test.tex##" "nexusOps.org" "####test.tex####" "mkdev.sh" "#test.org#" "filters.org" "###test.tex###" "../")
-
- ("/home/igor/svn/project5/rep/sec/problem_analysis/" (21056 15033 963385 69000) "computer_platform.tex" "requirement_introduction.tex" "wireless_communication.tex" "./" "speaker.tex" ".#microphone.tex" "dig_sig_proc_buffers.tex" "#microphone.tex#" "microphone.tex" "requirement_interfaces.tex" "battery_life_wireless.tex" "requirement_system_functions.tex" "filters.tex" "../")
 
  ("/home/igor/svn/project5/rep/sec/" (21042 60802 676689 863000) "etc/" "./" "intro/" "problem_analysis/" "../")
 
