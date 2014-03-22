@@ -1,25 +1,25 @@
 #include <iostream.h>
 using namespace std;
-class nigga
+class nonInsulting
 {
  private:
   int x,y; 
  public:
-  nigga(){
-    cout << "I am a nigga, NIGGAH" << endl;
+  nonInsulting(){
+    cout << "Less insulting class names is preferable." << endl;
 
 
   };
-  virtual ~nigga();
+  virtual ~nonInsulting();
 };
 
 int int main(int argc, char *argv[])
 {
 
-  nigga denhart;
+  nonInsulting denhart;
   denhart.x=1;
       denhart.y=2;
-      denhart.nigga;  
+      denhart.nonInsulting;  
   return 0;
 }
 
